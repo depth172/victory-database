@@ -1,0 +1,16 @@
+{
+  "name": "victory-database",
+  "version": "1.0.0",
+  "description": "Players database for Inazuma Eleven: Victory Road",
+	"private": true,
+	"scripts": {
+		"scrape:build": "npm --prefix ./scraper run build",
+		"scrape": "npm --prefix ./scraper run scrape",
+		"ui:dev": "npm --prefix ./ui run dev",
+		"ui:build": "npm --prefix ./ui run build",
+		"ui:start": "npm --prefix ./ui run start",
+		"update-data": "npm run scrape"
+	},
+  "author": "depth172",
+  "license": "ISC"
+}

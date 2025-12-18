@@ -1,0 +1,32 @@
+export type GetMethod =
+	| { type: "single"; title: string }
+	| { type: "list"; title: string; items: string[] }
+	| { type: "record"; title: string; routes: Record<string, string[]> };
+
+export type PlayerPosition = "FW" | "MF" | "DF" | "GK";
+export type PlayerElement = "風" | "林" | "火" | "山";
+
+export type Player = {
+	name: string;
+	nickname: string;
+	appeared_works: string;
+	description: string;
+	get_methods: GetMethod[];
+	img_url: string;
+	view_url: string;
+
+	position: PlayerPosition | null;
+	element: PlayerElement | null;
+	kick: number | null;
+	control: number | null;
+	technique: number | null;
+	pressure: number | null;
+	physical: number | null;
+	agility: number | null;
+	intelligence: number | null;
+
+	age_group: string;
+	grade: string;
+	gender: string;
+	category: string;
+};

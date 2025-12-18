@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "scrape": "node dist/scraper/scripts/scrape.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "playwright": "^1.57.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.2",
+    "typescript": "^5.9.3"
+  }
+}
