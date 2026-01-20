@@ -180,11 +180,9 @@ async function buildMapFromCharaList(baseUrl: string) {
 async function uploadToDatabase(players: Player[]) {
 	const apiUrl = process.env.API_URL_INGEST!;
 	const ingestKey = process.env.INGEST_KEY!;
-	const supabaseKey = process.env.SUPABASE_ANON_KEY!;
 	const batchSize = Number(process.env.UPSERT_BATCH_SIZE ?? "200");
 
 	console.log(new URL(apiUrl).origin);
-	console.log(`Using Supabase Key: ${supabaseKey ? "*****" : "(not set)"}`);
 	console.log(`Using Ingest Key: ${ingestKey ? "*****" : "(not set)"}`);
 
   if (!ingestKey) {
@@ -209,7 +207,6 @@ async function uploadToDatabase(players: Player[]) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${supabaseKey}`,
           "x-ingest-key": ingestKey,
         },
         body: JSON.stringify(batch),
@@ -227,6 +224,7 @@ async function uploadToDatabase(players: Player[]) {
         }
       } else {
         console.error(`  ✗ Batch ${batchNum} failed: ${data.error}`);
+				console.error('    Debug: %s', data.debug ?? "(no debug info)");
         if (data.details) console.error('    Details: %o', data.details);
         failedBatches++;
         continue;

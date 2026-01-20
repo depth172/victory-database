@@ -80,8 +80,19 @@ Deno.serve(async (req) => {
 	if (!expectedKey) {
 		return json(500, { ok: false, error: "Server misconfigured: INGEST_KEY missing" });
 	}
+	
 	if (!ingestKey || ingestKey !== expectedKey) {
-		return json(401, { ok: false, error: "Unauthorized" });
+		return json(401, {
+			ok: false,
+			error: "Unauthorized",
+			debug: {
+				ingest_present: Boolean(ingestKey),
+				ingest_len: ingestKey?.length ?? 0,
+				expected_len: expectedKey.length,
+				ingest_has_newline: ingestKey ? /[\r\n]/.test(ingestKey) : false,
+				expected_has_newline: /[\r\n]/.test(expectedKey),
+			},
+		});
 	}
 
 	// Supabase client（Service Role）
