@@ -182,9 +182,6 @@ async function uploadToDatabase(players: Player[]) {
 	const ingestKey = process.env.INGEST_KEY!;
 	const batchSize = Number(process.env.UPSERT_BATCH_SIZE ?? "200");
 
-	console.log(new URL(apiUrl).origin);
-	console.log(`Using Ingest Key: ${ingestKey ? "*****" : "(not set)"}`);
-
   if (!ingestKey) {
     throw new Error("INGEST_KEY environment variable is not set");
   }
@@ -224,7 +221,7 @@ async function uploadToDatabase(players: Player[]) {
         }
       } else {
         console.error(`  ✗ Batch ${batchNum} failed: ${data.error}`);
-				console.error('    Debug: %s', data.debug ?? "(no debug info)");
+				if (data.debug) console.error('    Debug: %s', data.debug);
         if (data.details) console.error('    Details: %o', data.details);
         failedBatches++;
         continue;
