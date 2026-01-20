@@ -1,6 +1,7 @@
 import "dotenv/config";
+import crypto from "crypto";
 import * as cheerio from "cheerio";
-import type { Player, PlayerElement, PlayerPosition } from "@/shared/types";
+import type { Player, PlayerElement, PlayerPosition, SpecialMove } from "@/shared/types";
 
 function getArg(name: string): string | null {
   const i = process.argv.indexOf(name);
@@ -177,7 +178,7 @@ async function buildMapFromCharaList(baseUrl: string) {
 	return map;
 }
 
-async function uploadToDatabase(players: Player[]) {
+async function uploadToPlayerDatabase(players: Player[]) {
 	const apiUrl = process.env.API_URL_INGEST!;
 	const ingestKey = process.env.INGEST_KEY!;
 	const batchSize = Number(process.env.UPSERT_BATCH_SIZE ?? "200");
@@ -200,7 +201,7 @@ async function uploadToDatabase(players: Player[]) {
     console.log(`\n[Batch ${batchNum}/${totalBatches}] Uploading ${batch.length} players...`);
 
     try {
-      const res = await fetch(apiUrl, {
+      const res = await fetch(apiUrl + "ingest-players", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -255,13 +256,83 @@ async function uploadToDatabase(players: Player[]) {
   }
 }
 
+function hashSkill(input: string) {
+  return crypto
+    .createHash("sha1")
+    .update(input)
+    .digest("hex");
+}
+
+async function uploadToSpecialMoveDatabase(specialMoves: SpecialMove[]) {
+	const apiUrl = process.env.API_URL_INGEST!;
+	const ingestKey = process.env.INGEST_KEY!;
+	const batchSize = Number(process.env.UPSERT_BATCH_SIZE ?? "200");
+
+	if (!ingestKey) {
+		throw new Error("INGEST_KEY environment variable is not set");
+	}
+
+	console.log(`\nUploading ${specialMoves.length} special moves to database in batches of ${batchSize}...`);
+	let totalUpserted = 0;
+	let failedBatches = 0;
+
+	for (let i = 0; i < specialMoves.length; i += batchSize) {
+		const batch = specialMoves.slice(i, i + batchSize);
+		const batchNum = Math.floor(i / batchSize) + 1;
+		const totalBatches = Math.ceil(specialMoves.length / batchSize);
+		console.log(`\n[Batch ${batchNum}/${totalBatches}] Uploading ${batch.length} special moves...`);
+
+		try {
+			const res = await fetch(apiUrl + "ingest-special-moves", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					"x-ingest-key": ingestKey,
+				},
+				body: JSON.stringify(batch),
+			});
+			const data = await res.json();
+			if (res.status === 200 && data.ok) {
+				console.log(`  ✓ Upserted ${data.upserted} special moves`);
+				totalUpserted += data.upserted;
+			} else {
+				console.error(`  ✗ Batch ${batchNum} failed: ${data.error}`);
+				if (data.debug) console.error('    Debug: %s', data.debug);
+				if (data.details) console.error('    Details: %o', data.details);
+				failedBatches++;
+				continue;
+			}
+		} catch (e) {
+			console.error(`  ✗ Network error in batch ${batchNum}: ${e}`);
+			failedBatches++;
+			continue;
+		}
+		// API レート制限対策
+		if (i + batchSize < specialMoves.length) {
+			await new Promise(resolve => setTimeout(resolve, 500));
+		}
+	}
+	console.log(`\n${'='.repeat(50)}`);
+	console.log(`✓ Upload complete!`);
+	console.log(`  Total upserted: ${totalUpserted}`);
+	if (failedBatches > 0) {
+		console.log(`  ✗ Failed batches: ${failedBatches}`);
+	}
+	console.log(`${'='.repeat(50)}`);
+
+	// 全バッチ失敗した場合のみ終了コード1
+	if (failedBatches > 0 && totalUpserted === 0) {
+		process.exit(1);
+	}
+}
+
 async function main() {
   const baseUrl = getArg("--base") ?? "https://zukan.inazuma.jp";
   const perPage = Number(getArg("--per-page") ?? "200");
   const maxPages = Number(getArg("--max-pages") ?? "999");
   const emptyStop = Number(getArg("--empty-stop") ?? "5");
 
-  const all: Player[] = [];
+  const allPlayers: Player[] = [];
   let consecutiveEmpty = 0;
 
 	const listMap = await buildMapFromCharaList(baseUrl);
@@ -346,12 +417,74 @@ async function main() {
     }
 
     consecutiveEmpty = 0;
-    all.push(...filtered);
+    allPlayers.push(...filtered);
 
-    console.log(`  got ${filtered.length} players (total: ${all.length})`);
+    console.log(`  got ${filtered.length} players (total: ${allPlayers.length})`);
   }
 
-	await uploadToDatabase(all);
+	await uploadToPlayerDatabase(allPlayers);
+
+	const allSpecialMoves: SpecialMove[] = [];
+
+	console.log(`\nFetching special moves from ${baseUrl}/skill/...`);
+
+	const shootQuery = "hN2cnouamJCNhqCZlpOLmo3dxaTOooI=";
+	const offenseQuery = "hN2cnouamJCNhqCZlpOLmo3dxaTNooI=";
+	const defenseQuery = "hN2cnouamJCNhqCZlpOLmo3dxaTMooI=";
+	const keeperQuery = "hN2cnouamJCNhqCZlpOLmo3dxaTLooI=";
+
+	const skillTypeNames = {
+		シュート: "shoot",
+		オフェンス: "offense",
+		ディフェンス: "defense",
+		キーパー: "keeper",
+	} as const;
+
+	for (const [category, query] of [
+		["シュート", shootQuery],
+		["オフェンス", offenseQuery],
+		["ディフェンス", defenseQuery],
+		["キーパー", keeperQuery],
+	] as const) {
+		const url = `${baseUrl}/skill/?q=${query}`;
+		console.log(`  fetching ${skillTypeNames[category]} skills...`);
+
+		const res = await fetch(url, {
+			headers: {
+				// たまにUAで挙動変わるサイトがあるので保険
+				"user-agent": "Mozilla/5.0 (scraper; +cheerio)"
+			}
+		});
+
+		if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
+		const html = await res.text();
+
+		const $ = cheerio.load(html);
+		$("ul.skillListBox > li").each((_, el) => {
+			const li = $(el);
+
+			const name = normalize(li.find("span.name").first().text());
+			const description = textWithBr($, li.find("p.description").first());
+
+			const movieHref = li.find("a.modal_inline").attr("data-movie-url") ?? "";
+			const rawId = name + "|" + movieHref;
+			const id = hashSkill(rawId);
+
+			allSpecialMoves.push({
+				id,
+				name,
+				description,
+				movie_url: movieHref,
+				category,
+			});
+		});
+
+		console.log(`    got ${allSpecialMoves.length} total special moves so far...`);
+	}
+
+	await uploadToSpecialMoveDatabase(allSpecialMoves);
+
+	console.log("\nAll done!");
 }
 
 main().catch((e) => {

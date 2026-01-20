@@ -35,3 +35,27 @@ export type Player = {
 	category: string[];
 	affiliation: string[];
 };
+
+export type ExtendedPlayer = Player & {
+	build: PlayerBuild | null;
+};
+
+export type SpecialMoveCategory = "シュート" | "オフェンス" | "ディフェンス" | "キーパー";
+export type SpecialMoveElement = PlayerElement | "無";
+
+export type SpecialMove = {
+	id: string;
+	name: string;
+	description: string;
+	movie_url: string;
+	category: SpecialMoveCategory;
+}
+
+export type ExtendedSpecialMove = SpecialMove & {
+	power: number;
+	element: PlayerElement;
+	isCounterShoot?: boolean;
+	isLongShoot?: boolean;
+	isShootBlock?: boolean;
+	isPunching?: boolean;
+};
