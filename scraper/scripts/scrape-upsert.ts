@@ -269,7 +269,7 @@ async function uploadToSpecialMoveDatabase(specialMoves: SpecialMove[]) {
 	const batchSize = Number(process.env.UPSERT_BATCH_SIZE ?? "200");
 
 	if (!ingestKey) {
-		throw new Error("INGEST_KEY environment variable is not set");
+			throw new Error("INGEST_KEY environment variable is not set");
 	}
 
 	console.log(`\nUploading ${specialMoves.length} special moves to database in batches of ${batchSize}...`);
@@ -292,11 +292,12 @@ async function uploadToSpecialMoveDatabase(specialMoves: SpecialMove[]) {
 				body: JSON.stringify(batch),
 			});
 			const data = await res.json();
+
 			if (res.status === 200 && data.ok) {
 				console.log(`  ✓ Upserted ${data.upserted} special moves`);
 				totalUpserted += data.upserted;
 			} else {
-				console.error(`  ✗ Batch ${batchNum} failed: ${data.error}`);
+				console.error(`  ✗ Batch ${batchNum} failed: ${data.error ?? "unknown error"}`);
 				if (data.debug) console.error('    Debug: %s', data.debug);
 				if (data.details) console.error('    Details: %o', data.details);
 				failedBatches++;
@@ -312,6 +313,7 @@ async function uploadToSpecialMoveDatabase(specialMoves: SpecialMove[]) {
 			await new Promise(resolve => setTimeout(resolve, 500));
 		}
 	}
+
 	console.log(`\n${'='.repeat(50)}`);
 	console.log(`✓ Upload complete!`);
 	console.log(`  Total upserted: ${totalUpserted}`);
@@ -446,40 +448,52 @@ async function main() {
 		["ディフェンス", defenseQuery],
 		["キーパー", keeperQuery],
 	] as const) {
-		const url = `${baseUrl}/skill/?q=${query}`;
-		console.log(`  fetching ${skillTypeNames[category]} skills...`);
+		for (let p = 1; p <= maxPages; p++) {
+			const url = `${baseUrl}/skill/?page=${p}&q=${query}`;
+			console.log(`  fetching ${skillTypeNames[category]} skills... (page ${p})`);
 
-		const res = await fetch(url, {
-			headers: {
-				// たまにUAで挙動変わるサイトがあるので保険
-				"user-agent": "Mozilla/5.0 (scraper; +cheerio)"
-			}
-		});
-
-		if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
-		const html = await res.text();
-
-		const $ = cheerio.load(html);
-		$("ul.skillListBox > li").each((_, el) => {
-			const li = $(el);
-
-			const name = normalize(li.find("span.name").first().text());
-			const description = textWithBr($, li.find("p.description").first());
-
-			const movieHref = li.find("a.modal_inline").attr("data-movie-url") ?? "";
-			const rawId = name + "|" + movieHref;
-			const id = hashSkill(rawId);
-
-			allSpecialMoves.push({
-				id,
-				name,
-				description,
-				movie_url: movieHref,
-				category,
+			const res = await fetch(url, {
+				headers: {
+					// たまにUAで挙動変わるサイトがあるので保険
+					"user-agent": "Mozilla/5.0 (scraper; +cheerio)"
+				}
 			});
-		});
 
-		console.log(`    got ${allSpecialMoves.length} total special moves so far...`);
+			if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
+			const html = await res.text();
+			
+			const rows: SpecialMove[] = [];
+
+			const $ = cheerio.load(html);
+			$("ul.skillListBox > li").each((_, el) => {
+				const li = $(el);
+
+				const name = rubySurface($, li.find("span.name").first());
+				const description = textWithBr($, li.find("p.description").first());
+
+				const movieHref = li.find("a.modal_inline").attr("data-movie-url") ?? "";
+				const rawId = name + "|" + movieHref;
+				const id = hashSkill(rawId);
+
+				if (!name || name === "？？？") return;
+
+				rows.push({
+					id,
+					name,
+					description,
+					movie_url: movieHref,
+					category,
+				});
+			});
+
+			if (rows.length === 0) {
+				break;
+			}
+
+			allSpecialMoves.push(...rows);
+
+			console.log(`    got ${rows.length} special moves (total: ${allSpecialMoves.length})`);
+		}
 	}
 
 	await uploadToSpecialMoveDatabase(allSpecialMoves);
