@@ -45,6 +45,7 @@ export type SpecialMoveElement = PlayerElement | "無";
 
 export type SpecialMove = {
 	id: string;
+	number: number;
 	name: string;
 	description: string;
 	movie_url: string;

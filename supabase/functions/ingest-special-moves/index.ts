@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 
 type SpecialMove = {
 	id: string;
+	number: number;
 	name: string;
 	description: string;
 	movie_url: string;
@@ -31,7 +32,8 @@ function isSpecialMove(x: unknown): x is SpecialMove {
 		typeof x === "object" &&
 		typeof obj.id === "string" &&
 		obj.id.length > 0 &&
-		typeof obj.name === "string"
+		typeof obj.name === "string" &&
+		typeof obj.number === "number"
 	);
 }
 

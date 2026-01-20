@@ -465,20 +465,21 @@ async function main() {
 			const rows: SpecialMove[] = [];
 
 			const $ = cheerio.load(html);
-			$("ul.skillListBox > li").each((_, el) => {
+			$("ul.skillListBox > li").each((idx, el) => {
 				const li = $(el);
 
 				const name = rubySurface($, li.find("span.name").first());
 				const description = textWithBr($, li.find("p.description").first());
 
 				const movieHref = li.find("a.modal_inline").attr("data-movie-url") ?? "";
-				const rawId = name + "|" + movieHref;
+				const rawId = name + "|" + category;
 				const id = hashSkill(rawId);
 
 				if (!name || name === "？？？") return;
 
 				rows.push({
 					id,
+					number: idx + 1 + allSpecialMoves.length,
 					name,
 					description,
 					movie_url: movieHref,
