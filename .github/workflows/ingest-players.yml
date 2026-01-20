@@ -23,7 +23,9 @@ jobs:
           cache: npm
 
       - name: Install
-        run: npm ci
+        run: |
+          cd scraper
+          npm install
 
       - name: Run scraper + ingest
         env:
@@ -32,6 +34,5 @@ jobs:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
           node --version
-          npm install @types/node
           npm run scrape:build
           npm run scrape-upsert
