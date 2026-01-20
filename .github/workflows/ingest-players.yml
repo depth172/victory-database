@@ -32,5 +32,6 @@ jobs:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
           node --version
+          npm install @types/node
           npm run scrape:build
           npm run scrape-upsert
