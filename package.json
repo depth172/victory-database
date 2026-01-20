@@ -7,10 +7,11 @@
     "scrape:build": "npm --prefix ./scraper run build",
     "scrape": "npm --prefix ./scraper run scrape",
     "scrape-upsert": "npm --prefix ./scraper run scrape-upsert",
+    "scrape-upsert:local": "npm --prefix ./scraper run scrape-upsert:local",
     "ui:dev": "npm --prefix ./ui run dev",
     "ui:build": "npm --prefix ./ui run build",
     "ui:start": "npm --prefix ./ui run start",
-    "update-data": "npm run scrape-upsert"
+    "update-data": "npm run scrape-upsert:local"
   },
   "author": "depth172",
   "license": "ISC",

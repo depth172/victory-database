@@ -2,7 +2,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "scrape": "node dist/scraper/scripts/scrape.js",
-    "scrape-upsert": "node --loader dotenv/config dist/scraper/scripts/scrape-upsert.js",
+		"scrape-upsert": "node dist/scraper/scripts/scrape-upsert.js",
+    "scrape-upsert:local": "node --loader dotenv/config dist/scraper/scripts/scrape-upsert.js",
     "translate": "node dist/scraper/scripts/translate.js"
   },
   "dependencies": {
