@@ -181,6 +181,7 @@ export default function PlayersPage() {
 		const rows = preparedPlayers.filter((row) => {
 			const p = row.player;
 
+			// if (p.build !== null) return false; // ビルド調査用
 			if (filterSets.gender.size > 0 && !filterSets.gender.has(p.gender ?? "")) return false;
 			if (filterSets.element.size > 0 && (!p.element || !filterSets.element.has(p.element))) return false;
 			if (filterSets.position.size > 0 && (!p.position || !filterSets.position.has(p.position))) return false;
@@ -353,6 +354,7 @@ export default function PlayersPage() {
 						<div>ポジション</div>
 						<div>性別</div>
 						<div>属性</div>
+						<div>ビルド</div>
 						<div>キック</div>
 						<div>コントロール</div>
 						<div>テクニック</div>
@@ -420,6 +422,7 @@ const PlayersGrid = memo(function PlayersGrid(props: {
 							<div>{p.position ?? "-"}</div>
 							<div>{p.gender ?? "-"}</div>
 							<div>{p.element ?? "-"}</div>
+							<div>{p.build ?? "未調査"}</div>
 							<div>{p.kick ?? "-"}</div>
 							<div>{p.control ?? "-"}</div>
 							<div>{p.technique ?? "-"}</div>

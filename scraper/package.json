@@ -1,14 +1,18 @@
 {
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "scrape": "node dist/scraper/scripts/scrape.js"
+    "scrape": "node dist/scraper/scripts/scrape.js",
+    "scrape-upsert": "node --loader dotenv/config dist/scraper/scripts/scrape-upsert.js",
+    "translate": "node dist/scraper/scripts/translate.js"
   },
   "dependencies": {
     "cheerio": "^1.1.2",
+    "dotenv": "^17.2.3",
     "playwright": "^1.57.0"
   },
   "devDependencies": {
     "@types/node": "^25.0.2",
+    "supabase": "^2.72.8",
     "typescript": "^5.9.3"
   }
 }

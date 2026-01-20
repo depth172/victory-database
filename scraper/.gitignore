@@ -68,6 +68,3 @@ Thumbs.db
 
 # Ignore built files
 dist/
-
-# Ignore generated database files
-data/

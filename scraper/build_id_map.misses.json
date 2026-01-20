@@ -1,0 +1,2822 @@
+[
+	{
+		"name": "円堂 カノン",
+		"work": "イナズマイレブン3 世界への挑戦!! スパーク／ボンバー／ジ・オーガ",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "風丸 一郎太",
+		"work": "イナズマイレブンGO シャイン／ダーク",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "壁山 塀吾郎",
+		"work": "イナズマイレブンGO シャイン／ダーク",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "染岡 竜吾",
+		"work": "イナズマイレブンGO シャイン／ダーク",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "吹雪 士郎",
+		"work": "イナズマイレブンGO シャイン／ダーク",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "不動 明王",
+		"work": "イナズマイレブンGO シャイン／ダーク",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "吉良 ヒロト",
+		"work": "イナズマイレブンGO シャイン／ダーク",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "金渕 誠",
+		"work": "イナズマイレブン 英雄たちのヴィクトリーロード",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "水木 三郎",
+		"work": "イナズマイレブン 英雄たちのヴィクトリーロード",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "木山 与一",
+		"work": "イナズマイレブン 英雄たちのヴィクトリーロード",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "火地原 平治",
+		"work": "イナズマイレブン 英雄たちのヴィクトリーロード",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "エルシャール・レイトン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ルーク・トライトン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "稲森 明日人",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "小僧丸 サスケ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "剛陣 鉄之助",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "海腹 のりか",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "日和 正勝",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "奥入 祐",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "道成 達巳",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "万作 雄一郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "岩戸 高志",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "氷浦 貴利名",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "服部 半太",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "趙 金雲",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "神門 杏奈",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "大谷 つくし",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "天野 政道",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "古都野 富夫",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "白鳥 つむき",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "八木原 克己",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "水神矢 成龍",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "双子玉川 哲也",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "魚島 鮫治",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "早乙女 聖也",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "佐曽塚 瑛士",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "折緒 冬輝",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "灰崎 凌兵",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "鬼道 有人",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "志士谷 雄介",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "久遠 道也",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "巻原 英司",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "音無 春奈",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "西蔭 政也",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "道場 敦教",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "香坂 蘭人",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "桜庭 春樹",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "花咲 泰全",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "奥野 細道",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "谷崎 義弥",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "丘野 康介",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "草加 玄",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "野坂 悠馬",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "葉音 一矢",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "竹見 幸助",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "椎名 壱成",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "嵐 新次郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "城西 健人",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "前野 大豊",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "平田 泰造",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "盛上 モコ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "万里 長嶺",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "武六 積夫",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "盾野 達夫",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "鉄豪士 小五郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "宇郷 猿吉",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "岩垣 登郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "石壁 ヤモリ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "壁山 塀吾郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "齋藤 岩石",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "細井 長夫",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "山城 きずく",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "大御所 館",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "西垣 守",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "女川 映日",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "光宗 団",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "黒部 立樹",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "跳山 段",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "屋形 直人",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "茂木 沙樹都",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "武方 勝",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "武方 友",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "武方 努",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "豪炎寺 修也",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "水戸 安登未",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "星乃 円",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "丹波 鈴",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "小間 直",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "弘山 誘",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "花岡 強",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "室伏 恐",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "稲田 則",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "瀬川 電",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "藤丸 啓",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "江波 満",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "山岸 迫",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "大部 信",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "下鶴 改",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "我野 革命",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "機械 八太郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "源田 幸次郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "大野 伝助",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "万丈 一道",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "成神 健也",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "五条 勝",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "辺見 渡",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "咲山 修二",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "洞面 秀一郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "寺門 大貴",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "佐久間 次郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "風丸 一郎太",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "湿川 陰",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "不動 明王",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "影山 零治",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "皇寺 銀兵",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "歩星 呑二",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "阿保露 光",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "派手野 哲",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "荒須 乱",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "手魚 激",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "在手 実弓",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "経目 須商",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "明天名 智",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "出右手 豊",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "亜風炉 照美",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "経流背 有珠",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "松坂 キヨ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "牛島 育郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "函田 鉄",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "真都路 珠香",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "押矢 万部",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "目深 宗司",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "雪野 星也",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "荒谷 紺子",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "居屋 真降",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "空野 礼文",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "吹雪 士郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "吹雪 アツヤ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "喜多海 流",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "氷上 烈斗",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "白兎屋 なえ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "染岡 竜吾",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "白兎屋 甘兵衛",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "丘峰 寒名",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "砂木沼 治",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "蟹目 出郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "倉掛 クララ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "緑川 リュウジ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "本場 激",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "八神 玲名",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "熱波 夏彦",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "南雲 晴矢",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "涼野 風介",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "基山 タツヤ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "吉良 ヒロト",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "武藤 論",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "瀬方 隆一郎",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "薔薇園 華",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "吉良 瞳子",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "円堂 守",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "坂野上 昇",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "金城 光成",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "簑島 俊哉",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "橋屋 耕作",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "六豹 条",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "玄場 幸治",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "段 哲夫",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "田植 郁人",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "下町 駆",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "要 瑞保",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "狸ヶ原 ぽん子",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "栗松 鉄平",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "半田 真一",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "松野 空介",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "少林寺 歩",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "宍戸 佐吉",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "影野 仁",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "目金 欠流",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "一之瀬 一哉",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "土門 飛鳥",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アロンソ・フィビアーノ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "オスカル・アギト",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "フェデリコ・ダズロ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "グレゴリオ・ハバロ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ダニエル・マドローネ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ルーバーン・ボイク",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "トランシー・コルネット",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ドネル・ゴッティ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ルーサー・ファンダム",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "クラリオ・オーヴァン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ベルガモ・レグルト",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "京野 球太",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "一星 充",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "一星 光",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "小僧丸 サスケ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "海腹 のりか",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "析谷 共有",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "シン・レウォン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ファン・ドユン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "キム・ヨンウ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ソン・ソア",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "パク・ユファン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ヨン・ジフン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "イ・スンジン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ソク・ミンウ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "パク・ジウォン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ペク・シウ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "イ・ドンヒョク",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ホ・ウンチャン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ソン・ミンス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ハ・ジョンピョ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "チャ・ウンス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "パズズ・ザハム",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アガリア・レプト",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "デモゴルゴン・アノー",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ベルフェゴール・イノス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アムドゥ・スキアス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ベルゼ・ブブ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ベリアル・ノーゼ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アスモ・デウス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "サタン・ゴール",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "サル・ガタナス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アス・タロト",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ルシ・ファノス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ガープ・レデル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ディアボ・ロス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "シモン・アザゼル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アレク・アクバー",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "イブラヒム・アビ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ムハンマド・ホーク",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "マジド・アゼル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ザファル・ギン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "クムシュ・イゼ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "サリベク・ナハル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ファルハド・ギリク",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ムハバート・ザーク",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アナハン・イムス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ダスト・ゲイルス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ナルクル・ブーゲン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ケルディ・ロゼル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アダム・サンチー",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ザビーネ・ノジマ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ファルコン・アリ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ガラ・マゴス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ペッカ・レアム",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "サミ・ルイス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ドーガン・バトラー",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ガダル・ガーナ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ヒソカ・マソカ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ハルク・ライオス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "コンドル・ウィリー",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アンドレアス・ベボ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "シルバ・レオル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ペドロ・アミダ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "サミル・アミダ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "エヴァ・ゴードン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "フラッシュ・ハニワ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "クン・フーチェ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "タオ・ルウ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "シャオ・ラウ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ミン・インチー",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "チェ・リン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "タン・タンミン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ウー・ロンチ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "チャウ・シン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "リ・ハオ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ワン・タンメオ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "シュウ・チュナ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "チャオ・マオ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "チー・チンスウ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ショウ・ロンポウ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "リ・ユーチェン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ドメルゴ・ドミンゲス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "レイナルド・バラハ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ルフィノ・アバロス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ベラスコ・メレンデス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "フェルナンド・ダビーノ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "エメリコ・ロルカ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "チコ・アリソン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "エミリオ・ルハン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ファビオ・エステベ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ペペ・バンデラス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ビッグマン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ジェントルマン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ダイバー",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "スモーキー",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ジャッジ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ハンター",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ヨガ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "コブラ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "シェイキー",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "コンボイ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ライオン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ホーン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "マジシャン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ジャック",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "バハート・デスコム",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ゴラン・ヴェシリア",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アレクセイ・トレポフ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ラビ・エレメンコ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "グエンナディ・ザハロフ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "シモン・ジトワ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "カルル・セニロフ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "シャミール・トルベツコイ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ヴィクトール・セドワ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "フロイ・ギリカナン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ザウル・サレンコ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ユーリ・ロディナ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ラスカー・ヴァグネル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "マール・マラット",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アース・イナーム",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ルース・カシム",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "マリク・クアベル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "リヴィン・ドリスコ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "グリース・ラウズ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "リオン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "グレオ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ビッグス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ランドル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "マセロ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "リカルド",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "マセウス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "マルセロ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ルシアン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "レナト",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ダニーニョ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ロラン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "サムエウ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アルトゥール",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ミゲル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "レイモン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "パウロ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "レオネイラ・カミオン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ガブリエラ・アマティ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "エルマ・キティ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アリーチェ・ベラルディ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ディアナ・スコラ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ネストレ・ガット",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ニコロ・フィーノ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ピエトロ・モレスコ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "カルロス・ガロ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ルカ・ルッソ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "マッテオ・ドメニコ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ペトロニオ・パッティ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ラケリト・スプト",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "カケハシ・ツグ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "トニオ・キアラ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "モニカ・サーラ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ジャスティノ・ジョバンニ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "キンベン・ジョルダーニ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ウラジミール",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "プロキオン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "タビト",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "メイサ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "サイフ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アルニタク",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "アルニラム",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ミンタカ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ベラトリックス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "リゲル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ユリカ・ベオル",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ベテルギウス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "シリウス",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "カッパ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ハチサ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "香澄崎 栄子",
+		"work": "イナズマイレブン 英雄たちのヴィクトリーロード",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "ヴィクトリオ・アルノ",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "フェイ・ルーン",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	},
+	{
+		"name": "？？？",
+		"work": "-",
+		"reason": "キャラJSON側に一致がない"
+	}
+]

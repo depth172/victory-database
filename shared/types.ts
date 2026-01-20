@@ -5,9 +5,13 @@ export type GetMethod =
 
 export type PlayerPosition = "FW" | "MF" | "DF" | "GK";
 export type PlayerElement = "風" | "林" | "火" | "山";
+export type PlayerBuild = "ひっさつ" | "カウンター" | "キズナ" | "テンション" | "ラフプレー" | "正義";
 
 export type Player = {
+	id: string;
+	number: number | null;
 	name: string;
+	ruby: string;
 	nickname: string;
 	appeared_works: string;
 	description: string;
@@ -28,5 +32,6 @@ export type Player = {
 	age_group: string;
 	grade: string;
 	gender: string;
-	category: string;
+	category: string[];
+	affiliation: string[];
 };
