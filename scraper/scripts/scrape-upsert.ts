@@ -183,7 +183,7 @@ async function uploadToDatabase(players: Player[]) {
 	const supabaseKey = process.env.SUPABASE_ANON_KEY!;
 	const batchSize = Number(process.env.UPSERT_BATCH_SIZE ?? "200");
 
-	console.log(`Using API URL: ${apiUrl}`);
+	console.log(new URL(apiUrl).origin);
 	console.log(`Using Supabase Key: ${supabaseKey ? "*****" : "(not set)"}`);
 	console.log(`Using Ingest Key: ${ingestKey ? "*****" : "(not set)"}`);
 
