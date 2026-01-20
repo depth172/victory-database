@@ -29,9 +29,9 @@ jobs:
 
       - name: Run scraper + ingest
         env:
-          API_URL_INGEST: ${{ secrets.API_URL_INGEST }}
+          API_URL_INGEST: ${{ vars.API_URL_INGEST }}
           INGEST_KEY: ${{ secrets.INGEST_KEY }}
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
         run: |
           node --version
           npm run scrape:build
