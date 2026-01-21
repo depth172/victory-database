@@ -334,6 +334,7 @@ async function main() {
   const maxPages = Number(getArg("--max-pages") ?? "999");
   const emptyStop = Number(getArg("--empty-stop") ?? "5");
 
+	/*
   const allPlayers: Player[] = [];
   let consecutiveEmpty = 0;
 
@@ -425,8 +426,10 @@ async function main() {
   }
 
 	await uploadToPlayerDatabase(allPlayers);
+	*/
 
 	const allSpecialMoves: SpecialMove[] = [];
+	let numberCounter = 0;
 
 	console.log(`\nFetching special moves from ${baseUrl}/skill/...`);
 
@@ -472,14 +475,16 @@ async function main() {
 				const description = textWithBr($, li.find("p.description").first());
 
 				const movieHref = li.find("a.modal_inline").attr("data-movie-url") ?? "";
-				const rawId = name + "|" + category;
+				const rawId = name + "|" + movieHref;
 				const id = hashSkill(rawId);
+
+				numberCounter++;
 
 				if (!name || name === "？？？") return;
 
 				rows.push({
 					id,
-					number: idx + 1 + allSpecialMoves.length,
+					number: numberCounter,
 					name,
 					description,
 					movie_url: movieHref,
