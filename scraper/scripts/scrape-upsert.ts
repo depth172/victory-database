@@ -112,12 +112,13 @@ async function buildMapFromCharaList(baseUrl: string) {
 
 	const perPage = 200;
 	const maxPages = 999;
+	const maxConsecutiveEmpty = 5; // 連続で無データなページが5回続いたら止める
 
 	console.log("Building list map from chara_list...");
 
-	for (let p = 1; p <= maxPages; p++) {
-		console.log(`  page ${p}...`);
+	let consecutiveEmpty = 0;
 
+	for (let p = 1; p <= maxPages; p++) {
 		const url = `${baseUrl}/chara_list/?page=${p}&per_page=${perPage}`;
 		const html = await fetch(url).then((r) => r.text());
 		const $ = cheerio.load(html);
@@ -127,11 +128,25 @@ async function buildMapFromCharaList(baseUrl: string) {
 			.first();
 
 		if (table.length === 0) {
-			break;
+			consecutiveEmpty++;
+			console.log(`  page ${p}: no table found (${consecutiveEmpty}/${maxConsecutiveEmpty})`);
+			if (consecutiveEmpty >= maxConsecutiveEmpty) {
+				console.log(`  stopping after ${maxConsecutiveEmpty} consecutive empty pages`);
+				break;
+			}
+			continue;
 		}
 
 		const rows = table.find("tbody tr");
-		if (rows.length === 0) break;
+		if (rows.length === 0) {
+			consecutiveEmpty++;
+			console.log(`  page ${p}: no tbody rows (${consecutiveEmpty}/${maxConsecutiveEmpty})`);
+			if (consecutiveEmpty >= maxConsecutiveEmpty) {
+				console.log(`  stopping after ${maxConsecutiveEmpty} consecutive empty pages`);
+				break;
+			}
+			continue;
+		}
 
 		const colIndexMap = resolveColumnIndex($, table);
 		
@@ -172,7 +187,17 @@ async function buildMapFromCharaList(baseUrl: string) {
 			hit++;
 		});
 
-		if (hit === 0) break;
+		if (hit === 0) {
+			consecutiveEmpty++;
+			console.log(`  page ${p}: no hits (${consecutiveEmpty}/${maxConsecutiveEmpty})`);
+			if (consecutiveEmpty >= maxConsecutiveEmpty) {
+				console.log(`  stopping after ${maxConsecutiveEmpty} consecutive empty pages`);
+				break;
+			}
+		} else {
+			consecutiveEmpty = 0; // リセット
+			console.log(`  page ${p}: ${hit} entries added (total: ${map.size})`);
+		}
 	}
 
 	return map;
@@ -219,6 +244,7 @@ async function uploadToPlayerDatabase(players: Player[]) {
         if (data.invalid && data.invalid.length > 0) {
           console.log(`  ⚠ ${data.invalidCount} players were invalid`);
           totalInvalid += data.invalidCount;
+					console.log('    Invalid IDs: %o', data.invalid.map((p: any) => p));
         }
       } else {
         console.error(`  ✗ Batch ${batchNum} failed: ${data.error}`);
@@ -334,7 +360,6 @@ async function main() {
   const maxPages = Number(getArg("--max-pages") ?? "999");
   const emptyStop = Number(getArg("--empty-stop") ?? "5");
 
-	/*
   const allPlayers: Player[] = [];
   let consecutiveEmpty = 0;
 
@@ -358,6 +383,7 @@ async function main() {
     const $ = cheerio.load(html);
 
     const rows: Array<Omit<Player, "build">> = [];
+    let unknownCount = 0;
     $(".charaListBox > li").each((_, el) => {
       const li = $(el);
 
@@ -380,11 +406,20 @@ async function main() {
       const stats = statMapFromLi($, li);
       const basic = basicMapFromLi($, li);
 
+			const listItem = q ? listMap.get(q) : undefined;
+			if (!q || !listItem) {
+				unknownCount++;
+				console.log(`  ⚠ Unknown player #${unknownCount}: name="${name}" q="${q}" in_listMap=${q ? listMap.has(q) : false}`);
+				return;
+			}
+
+			const id = listItem.id;
+
       rows.push({
-				id: q && listMap.has(q) ? listMap.get(q)!.id : "",
-				number: q && listMap.has(q) ? listMap.get(q)!.number : null,
+				id,
+				number: listItem.number,
         name,
-				ruby: q && listMap.has(q) ? listMap.get(q)!.ruby : "",
+				ruby: listItem.ruby,
         nickname,
         appeared_works: appearedWorks,
         description,
@@ -405,8 +440,8 @@ async function main() {
         age_group: basic["年代区分"] ?? "",
         grade: basic["学年"] ?? "",
         gender: basic["性別"] ?? "",
-        category: q && listMap.has(q) ? listMap.get(q)!.category : [],
-				affiliation: q && listMap.has(q) ? listMap.get(q)!.affiliation : []
+        category: listItem.category,
+				affiliation: listItem.affiliation
       });
     });
 
@@ -422,11 +457,10 @@ async function main() {
     consecutiveEmpty = 0;
     allPlayers.push(...filtered);
 
-    console.log(`  got ${filtered.length} players (total: ${allPlayers.length})`);
+    console.log(`  got ${filtered.length} players (${unknownCount} unknown, total: ${allPlayers.length})`);
   }
 
 	await uploadToPlayerDatabase(allPlayers);
-	*/
 
 	const allSpecialMoves: SpecialMove[] = [];
 	let numberCounter = 0;
