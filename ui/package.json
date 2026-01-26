@@ -7,10 +7,13 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.91.0",
     "@tanstack/react-virtual": "^3.13.13",
     "next": "16.0.10",
     "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react-dom": "19.2.1",
+    "supabase": "^2.72.8",
+    "supabase-js": "^0.0.1-security"
   },
   "devDependencies": {
     "@types/node": "^20",

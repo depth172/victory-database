@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans_JP, Bruno_Ace_SC } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const notoSansJP = Noto_Sans_JP({
+	subsets: ["latin"],
+	variable: "--font-noto-sans-jp",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const brunoAce = Bruno_Ace_SC({
+	subsets: ["latin"],
+	variable: "--font-bruno-ace-sc",
+	weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${notoSansJP.variable} ${brunoAce.variable}`}>
         {children}
       </body>
     </html>

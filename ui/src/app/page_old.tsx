@@ -354,7 +354,6 @@ export default function PlayersPage() {
 						<div>ポジション</div>
 						<div>性別</div>
 						<div>属性</div>
-						<div>ビルド</div>
 						<div>キック</div>
 						<div>コントロール</div>
 						<div>テクニック</div>
@@ -422,7 +421,6 @@ const PlayersGrid = memo(function PlayersGrid(props: {
 							<div>{p.position ?? "-"}</div>
 							<div>{p.gender ?? "-"}</div>
 							<div>{p.element ?? "-"}</div>
-							<div>{p.build ?? "未調査"}</div>
 							<div>{p.kick ?? "-"}</div>
 							<div>{p.control ?? "-"}</div>
 							<div>{p.technique ?? "-"}</div>

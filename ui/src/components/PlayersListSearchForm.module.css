@@ -1,0 +1,88 @@
+.searchForm {
+	display: flex;
+	margin: 16px auto;
+	flex-wrap: wrap;
+	gap: 16px;
+	align-items: flex-end;
+	margin-bottom: 16px;
+	max-width: 800px;
+}
+
+.inputs {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+	flex: 1 1 auto;
+}
+
+.inputs label {
+	display: flex;
+	flex-direction: column;
+	font-size: 0.9rem;
+	color: #aaa;
+}
+
+.textSearch {
+	flex: 1 1 100%;
+}
+
+.textSearch input {
+	margin-top: 4px;
+	padding: 6px 8px;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.inputs select {
+	margin-top: 4px;
+	padding: 6px 8px;
+	font-size: 0.8rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background-color: #222;
+	color: #eee;
+	cursor: pointer;
+}
+
+.inputs select:hover {
+	border-color: #888;
+}
+
+.inputs select:focus {
+	outline: none;
+	border-color: #666;
+}
+
+.inputs select option {
+	cursor: pointer;
+	background-color: var(--background);
+	color: var(--foreground);
+}
+
+.buttons {
+	display: flex;
+	gap: 8px;
+	margin-top: 8px;
+}
+
+.buttons button {
+	padding: 8px 16px;
+	font-size: 1rem;
+	border: none;
+	border-radius: 4px;
+	background-color: #444;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+	background-color: #666;
+}
+
+.buttons button:disabled {
+	background-color: #222;
+	color: #666;
+	cursor: not-allowed;
+}

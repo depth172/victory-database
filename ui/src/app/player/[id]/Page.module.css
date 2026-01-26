@@ -1,0 +1,207 @@
+.wrapper {
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+.pageContainer {
+	padding: 16px;
+	display: grid;
+	gap: 16px;
+}
+
+.pageContainer h2 {
+	font-size: 1.2rem;
+	border-bottom: 1px solid var(--foreground);
+}
+
+.header {
+	display: grid;
+	grid-template-columns: 128px 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 16px;
+	align-items: center;
+}
+
+.iconBlock {
+	width: 128px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	grid-row: 1 / 3;
+}
+
+.namePlate {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+}
+
+.namePlate .name {
+	text-align: center;
+	width: 100%;
+	font-weight: bold;
+	background: #213e53;
+	color: white;
+}
+
+.nameBlock {
+	display: flex;
+	align-items: flex-end;
+	gap: 1.5rem;
+	margin-top: 1rem;
+}
+
+.playerName {
+	display: flex;
+	flex-direction: column-reverse;
+	width: fit-content;
+}
+
+.playerName .nameMain {
+	font-size: 24px;
+	font-weight: 800;
+}
+
+.playerName .nameRuby {
+	opacity: 0.7;
+	font-size: 0.5rem;
+	text-align: center;
+}
+
+.baseInfoBlock {
+	display: flex;
+	align-items: flex-end;
+	gap: 0.8rem;
+	margin-bottom: 0.15rem;
+}
+
+.playerNumber {
+	opacity: 0.7;
+	font-size: 0.7rem;
+}
+
+.descriptionBlock {
+	white-space: pre-wrap;
+	line-height: 1.5;
+	padding: 0.6rem 1rem;
+	border: 1px solid #444;
+	border-radius: 0.5rem;
+	background-color: #3c4b56;
+}
+
+.statsGrid {
+	display: grid;
+	gap: 0.2rem 1rem;
+	grid-auto-flow: column;
+	grid-template-columns: 300px 1fr;
+	grid-template-rows: 2.5rem auto;
+	
+	justify-content: center;
+	align-items: center;
+}
+
+.statsGrid svg {
+	justify-self: center;
+}
+
+.infoGrid {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: 1fr 2fr;
+}
+
+.abilityGrid {
+	display: grid;
+	gap: 16px;
+	grid-auto-flow: row;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+}
+
+.buildInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 1rem;
+}
+
+.buildHeader {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.buildDescription {
+	margin-left: 1.5rem;
+	white-space: pre-wrap;
+	line-height: 1.5;
+}
+
+.buildNote {
+	font-size: 0.9rem;
+	opacity: 0.7;
+}
+
+.affiliationBlock ul {
+	margin-top: 8px;
+	list-style-type: none;
+	padding-left: 20px;
+}
+
+.miscInfoBlock {
+	display: grid;
+	gap: 8px;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+}
+
+.miscInfoBlock .cell,
+.miscInfoBlock .largeCell {
+	padding: 8px;
+	border: 1px solid #444;
+	border-radius: 0.5rem;
+	background-color: #27272c;
+	text-align: center;
+}
+
+.miscInfoBlock .cell h2,
+.miscInfoBlock .largeCell h2 {
+	margin: 0 0 4px 0;
+	font-size: 1rem;
+	border-bottom: 1px solid var(--foreground);
+	padding-bottom: 4px;
+}
+
+.miscInfoBlock .cell div,
+.miscInfoBlock .largeCell div {
+	opacity: 0.8;
+	margin: 1rem
+}
+
+.miscInfoBlock .largeCell {
+	grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+	.header {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto;
+	}
+
+	.iconBlock {
+		grid-row: 1;
+		justify-self: center;
+		margin-top: 0;
+	}
+
+	.statsGrid {
+		grid-template-columns: minmax(300px, 1fr);
+		grid-template-rows: repeat(2, 2.5rem auto);
+	}
+
+	.nameBlock {
+		justify-self: center;
+	}
+}

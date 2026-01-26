@@ -5,7 +5,8 @@ export type GetMethod =
 
 export type PlayerPosition = "FW" | "MF" | "DF" | "GK";
 export type PlayerElement = "風" | "林" | "火" | "山";
-export type PlayerBuild = "ひっさつ" | "カウンター" | "キズナ" | "テンション" | "ラフプレー" | "正義";
+export type PlayerBuild = "breach" | "counter" | "bond" | "tension" | "rough_play" | "justice";
+export type PlayerBuildName = "ひっさつ" | "カウンター" | "キズナ" | "テンション" | "ラフプレー" | "正義";
 
 export type Player = {
 	id: string;
@@ -37,11 +38,13 @@ export type Player = {
 };
 
 export type ExtendedPlayer = Player & {
-	build: PlayerBuild | null;
+	main_build_id: PlayerBuild | null;
+	main_build_name: PlayerBuildName | null;
 };
 
 export type SpecialMoveCategory = "シュート" | "オフェンス" | "ディフェンス" | "キーパー";
 export type SpecialMoveElement = PlayerElement | "無";
+export type SpecialMoveEffect = "long_shoot" | "counter_shoot" | "shoot_block" | "punching";
 
 export type SpecialMove = {
 	id: string;
@@ -54,9 +57,7 @@ export type SpecialMove = {
 
 export type ExtendedSpecialMove = SpecialMove & {
 	power: number;
-	element: PlayerElement;
-	isCounterShoot?: boolean;
-	isLongShoot?: boolean;
-	isShootBlock?: boolean;
-	isPunching?: boolean;
+	tension_cost: number;
+	element: SpecialMoveElement;
+	effect?: SpecialMoveEffect;
 };

@@ -1,0 +1,114 @@
+.skillList {
+	display: grid;
+	gap: 8px;
+	padding: 0;
+	list-style: none;
+	grid-template-columns: auto;
+	grid-template-rows: repeat(6, 2.5rem);
+}
+
+.skillItem {
+	border: 1px solid #aaa;
+	border-radius: 12px;
+	padding: 0.5rem;
+	opacity: 1;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background-image: linear-gradient(90deg, var(--start), var(--end) 50%, var(--end));
+}
+
+.skillItemEmpty {
+	border: 1px solid #aaa;
+	border-radius: 12px;
+	padding: 0.5rem;
+	opacity: 0.5;
+}
+
+.skillName {
+	font-weight: 600;
+	font-size: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.wind {
+	--end: #56b2e870;
+}
+
+.forest {
+	--end: #69ff6970;
+}
+
+.fire {
+	--end: #f0303070;
+}
+
+.mountain {
+	--end: #d0a05070;
+}
+
+.none {
+	--end: #a12ec170;
+}
+
+.shoot {
+	--start: #f0707070;
+}
+
+.offense {
+	--start: #70f07070;
+}
+
+.defense {
+	--start: #70a1f070;
+}
+
+.keeper {
+	--start: #f0e07070;
+}
+
+.realSkill {
+	--start: #b0b0b070;
+	--end: #b0b0b070;
+}
+
+.skillDetails {
+	display: flex;
+	align-items: center;
+	font-size: 0.7rem;
+	gap: 0.7rem;
+}
+
+.skillInfo {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.tensionCost {
+	color: #f08030;
+	opacity: 0.9;
+}
+
+.numberCell {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	font-family: var(--font-bruno-ace-sc), sans-serif;
+}
+
+.skillInfo .number {
+	font-weight: 600;
+}
+
+.power .number {
+	font-size: 1.5rem;
+}
+
+.tensionCost .number {
+	font-size: 1.2rem;
+}

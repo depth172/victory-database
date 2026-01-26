@@ -1,0 +1,63 @@
+export const GENDER = {
+  m: "男",
+  f: "女",
+	n: "不明",
+} as const;
+
+export const POSITION = {
+  gk: "GK",
+  df: "DF",
+  mf: "MF",
+  fw: "FW",
+} as const;
+
+// element は実データに合わせて
+export const ELEMENT = {
+  wi: "風",
+  fo: "林",
+  fi: "火",
+  mt: "山",
+} as const;
+
+// category は実データに合わせて（例）
+export const CATEGORY = {
+  pl: ["選手"],
+  le: ["監督", "コーチ"],
+  mg: ["マネージャー"],
+} as const;
+
+export type CategoryCode = keyof typeof CATEGORY;
+
+export const WORK = {
+	ie1: "イナズマイレブン",
+	ie2: "イナズマイレブン2 脅威の侵略者 ファイア／ブリザード",
+	ie3: "イナズマイレブン3 世界への挑戦!! スパーク／ボンバー／ジ・オーガ",
+	go1: "イナズマイレブンGO シャイン／ダーク",
+	go2: "イナズマイレブンGO2 クロノ・ストーン ネップウ／ライメイ",
+	go3: "イナズマイレブンGO ギャラクシー ビッグバン／スーパーノヴァ",
+	ars: "イナズマイレブン アレスの天秤",
+	ori: "イナズマイレブン オリオンの刻印",
+	vic: "イナズマイレブン 英雄たちのヴィクトリーロード",
+} as const;
+
+export const BUILD = {
+	breach: "ひっさつ",
+	counter: "カウンター",
+	bond: "キズナ",
+	tension: "テンション",
+	rough: "ラフプレー",
+	justice: "正義"
+}
+
+type Dict = Record<string, string>;
+
+export function decodeFromDict(dict: Dict, code: string | null) {
+  if (!code) return null;
+  return dict[code] ?? null;
+}
+
+export function encodeToDict(dict: Dict, value: string | null) {
+  if (!value) return null;
+  const entry = Object.entries(dict).find(([, v]) => v === value);
+  return entry?.[0] ?? null;
+}
