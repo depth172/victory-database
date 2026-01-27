@@ -236,9 +236,14 @@ async function main() {
       const stats = statMapFromLi($, li);
       const basic = basicMapFromLi($, li);
 
+			const number = q && listMap.has(q) ? listMap.get(q)!.number ?? 0 : 0;
+			if (number === 0) {
+				console.log(`  skipping player without number: ${name} (${viewUrl})`);
+				return;
+			}
+
       rows.push({
-				id: q && listMap.has(q) ? listMap.get(q)!.id : "",
-				number: q && listMap.has(q) ? listMap.get(q)!.number : null,
+				number: q && listMap.has(q) ? listMap.get(q)!.number ?? 0 : 0,
         name,
 				ruby: q && listMap.has(q) ? listMap.get(q)!.ruby : "",
         nickname,

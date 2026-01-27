@@ -20,15 +20,14 @@ export async function generateMetadata({
 }: {
 	params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-	const { id: rawId } = await params;
-	const id = decodeURIComponent(rawId);
+	const { id } = await params;
 	const supabase = createSupabaseServerClient();
 
 	const { data, error } = await supabase
 		.schema("extended")
 		.from("players_view")
 		.select("name,category")
-		.eq("id", id)
+		.eq("number", id)
 		.maybeSingle();
 
 	if (error || !data) {
@@ -48,8 +47,7 @@ export default async function PlayerPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id: rawId } = await params;
-	const id = decodeURIComponent(rawId);
+  const { id } = await params;
   const supabase = createSupabaseServerClient();
 
   const { data, error } = await supabase
@@ -57,7 +55,6 @@ export default async function PlayerPage({
     .from("players_view")
     .select(
       [
-        "id",
         "number",
         "name",
         "ruby",
@@ -84,7 +81,7 @@ export default async function PlayerPage({
 				"main_build_id"
       ].join(",")
     )
-    .eq("id", id)
+    .eq("number", id)
     .maybeSingle();
 
   if (error || !data) {
@@ -92,7 +89,7 @@ export default async function PlayerPage({
     if (error) {
       return <div style={{ padding: 16 }}>読み込み失敗: {error.message}</div>;
     }
-		console.log(`PlayerPage: player not found, id=${id}`);
+		console.log(`PlayerPage: player not found, number=${id}`);
     notFound();
   }
 
@@ -205,12 +202,12 @@ export default async function PlayerPage({
 						}
 						maxValues={maxStats}
 						minValues={minStats}
-						size={300}
+						size={280}
 						rings={5}
 					/>
 
 					<h2>習得スキル</h2>
-					<PlayerSkillList playerId={p.id} />
+					<PlayerSkillList playerId={p.number} />
 				</section>
 
 				<section className={style.abilityGrid}>

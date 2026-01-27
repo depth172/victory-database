@@ -49,6 +49,25 @@ export const BUILD = {
 	justice: "正義"
 }
 
+export type SortId = 
+		"focus_at"
+	| "focus_df"
+	| "scramble_at"
+	| "scramble_df"
+	| "shoot_at"
+	| "wall_df"
+	| "kp";
+
+export const SORTS: Record<SortId, string> = {
+  focus_at: "フォーカスAT",
+	focus_df: "フォーカスDF",
+	scramble_at: "スクランブルAT",
+	scramble_df: "スクランブルDF",
+	shoot_at: "シュートAT",
+	wall_df: "城壁DF",
+	kp: "KP"
+};
+
 type Dict = Record<string, string>;
 
 export function decodeFromDict(dict: Dict, code: string | null) {

@@ -1,8 +1,6 @@
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import PlayersList from "@/components/PlayersList";
-import { PlayerRow } from "@/types";
-import { filtersFromSearchParams } from "@/lib/playerFilters";
-import { BUILD, /* CATEGORY, */ decodeFromDict, ELEMENT, GENDER, POSITION, WORK } from "@/lib/playerDict";
+import { fetchPlayersPage, filtersFromSearchParams } from "@/lib/playerFilters";
 import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
@@ -28,43 +26,20 @@ export default async function PlayersPage(
 
   const f = filtersFromSearchParams(new URLSearchParams(Object.entries(searchParams).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v ?? ""])));
 
-	const { data, error } = await supabase.rpc("get_players_page_focus_at_asc", {
-		page_size: 100,
-		last_focus_at: null,
-		last_number: null,
-
-		q: f.q ?? null,
-		w: f.w ? decodeFromDict(WORK, f.w) : null,
-		pos: f.pos ? decodeFromDict(POSITION, f.pos) : null,
-		el: f.el ? decodeFromDict(ELEMENT, f.el) : null,
-		g: f.g ? decodeFromDict(GENDER, f.g) : null,
-		b: f.b ? decodeFromDict(BUILD, f.b) : null,
-
-		// cat はいったん後回しでもいい（最初は動かすのが優先）
+	const initial = await fetchPlayersPage(supabase, {
+		pageSize: 100,
+		cursor: null,
+		filters: f,
+		sort: f.sid ? { id: f.sid, dir: f.sdir ?? "desc" } : null,
 	});
 
-  // if (f.cat) {
-	// 	const targets = CATEGORY[f.cat as keyof typeof CATEGORY];
-	// 	if (targets) {
-	// 		if (targets.length === 1) {
-	// 			query = query.contains("category", [targets[0]]);
-	// 		} else {
-	// 			const orExpr = targets
-	// 				.map((t) => `category.cs.{${t}}`)
-	// 				.join(",");
-	// 			query = query.or(orExpr);
-	// 		}
-	// 	}
-	// }
-
-  if (error) {
-    return <div>読み込み失敗: {error.message}</div>;
-  }
-
-	const initial = (data ?? []) as PlayerRow[];
 	const last = initial.at(-1);
-	const initialCursor =
-		last ? { focusAt: last.focus_at as number, number: last.number } : null;
+	const initialCursor = last
+		? {
+				number: last.number!,
+				sortValue: f.sid ? (last as unknown as Record<string, number | null>)[f.sid] ?? null : null,
+		  }
+		: null;
 	
   return (
     <main style={{ padding: 16 }}>

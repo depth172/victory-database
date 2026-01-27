@@ -1,8 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
 type Player = {
-	id: string;
-	number: number | null;
+	number: number;
 	name: string;
 	ruby: string;
 	nickname: string;
@@ -50,8 +49,8 @@ function isPlayer(x: unknown): x is Player {
 	return (
 		x !== null &&
 		typeof x === "object" &&
-		typeof obj.id === "string" &&
-		obj.id.length > 0 &&
+		typeof obj.number === "number" &&
+		obj.number > 0 &&
 		typeof obj.name === "string"
 	);
 }
@@ -138,7 +137,7 @@ Deno.serve(async (req) => {
 			const { error } = await supabase
 				.schema("inagle")
 				.from("players")
-				.upsert(group, { onConflict: "id" });
+				.upsert(group, { onConflict: "number" });
 
 			if (error) {
 				return json(500, {

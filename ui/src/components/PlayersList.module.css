@@ -11,15 +11,23 @@
 	margin-bottom: 16px;
 }
 
-.playerTableContainer {
+.playerTableScrollArea {
 	width: 100%;
 	overflow-x: auto;
 }
 
-.playerTable {
+.playerTables {
+	width: fit-content;
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	margin: 0 auto;
+}
+
+.playerTable,
+.numberTable {
 	display: grid;
 	text-align: center;
-	margin: 16px auto;
 	grid-template-rows: auto 1fr;
 	border: 1px solid #333;
 	border-radius: 8px;
@@ -27,17 +35,22 @@
 	width: fit-content;
 }
 
-.pTableHeader {
+.pTableHeader,
+.nTableHeader {
 	display: grid;
 	align-items: center;
 	gap: 0.6rem;
 	padding: 8px 12px;
 	border-bottom: 1px solid #222;
+	font-size: 0.8rem;
+}
+
+.pTableHeader {
 	grid-template-columns: 2rem 60px 18rem 2rem 5rem 2.5rem 8rem 8rem 12rem;
 }
 
-.pTableHeader div {
-	font-size: 0.8rem;
+.nTableHeader {
+	white-space: nowrap;
 }
 
 .pTableBody {
@@ -45,7 +58,8 @@
 	overflow: auto;
 }
 
-.pTableRow {
+.pTableRow,
+.nTableRow {
 	width: 100%;
 
 	display: grid;
@@ -54,11 +68,20 @@
 	padding: 0 12px;
 	border-bottom: 1px solid #1f1f1f;
 	box-sizing: border-box;
+	position: relative;
+}
 
+.pTableRow {
 	grid-template-columns: 2rem 60px 18rem 2rem 5rem 2.5rem 8rem 8rem 12rem;
 }
 
-.pTableRow:hover {
+.nTableRow {
+	height: 61px;
+	min-width: 5rem;
+}
+
+.pTableRowHovered,
+.nTableRowHovered {
 	background: #26272d;
 }
 
@@ -107,6 +130,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.playerImage img {
+	position: -webkit-sticky;
+	position: sticky;
+	left: 0;
 }
 
 .name, .nickname {

@@ -3,7 +3,7 @@
 import style from "./PlayersListSearchForm.module.css";
 import { useEffect, useState } from "react";
 import { Filters, emptyFilters } from "@/lib/playerFilters";
-import { GENDER, POSITION, ELEMENT, CATEGORY, WORK, BUILD } from "@/lib/playerDict";
+import { GENDER, POSITION, ELEMENT, CATEGORY, WORK, BUILD, SORTS } from "@/lib/playerDict";
 
 export default function PlayersSearchForm(props: {
   applied: Filters;                 // URL由来
@@ -25,6 +25,7 @@ export default function PlayersSearchForm(props: {
 
   return (
     <div className={style.searchForm}>
+			<div className={style.title}>絞り込み</div>
 			<div className={style.inputs}>
 				<label className={style.textSearch}>
 					<div>検索キーワード</div>
@@ -89,8 +90,8 @@ export default function PlayersSearchForm(props: {
 					</select>
 				</label>
 
-				<label>
-					<div>作品</div>
+				<label className={style.workSelect}>
+					<div>初登場作品</div>
 					<select value={draft.w ?? ""} onChange={(e) => update("w", e.target.value || null)}>
 						<option value="">未指定</option>
 						{Object.entries(WORK).map(([code, name]) => (
@@ -110,6 +111,34 @@ export default function PlayersSearchForm(props: {
 								{name}
 							</option>
 						))}
+					</select>
+				</label>
+			</div>
+
+			<div className={style.title}>ソート</div>
+			<div className={style.inputs}>
+				<label>
+					<div>並び順</div>
+					<select
+						value={draft.sid ? draft.sid : ""}
+						onChange={(e) => update("sid", e.target.value ? (e.target.value as Filters["sid"]) : null)}
+					>
+						<option value="">未指定</option>
+						{Object.entries(SORTS).map(([id, name]) => (
+							<option key={id} value={id}>
+								{name}
+							</option>
+						))}
+					</select>
+				</label>
+				<label>
+					<div>方向</div>
+					<select
+						value={draft.sdir ? draft.sdir : ""}
+						onChange={(e) => update("sdir", e.target.value ? (e.target.value as Filters["sdir"]) : null)}
+					>
+						<option value="">降順</option>
+						<option value="asc">昇順</option>
 					</select>
 				</label>
 			</div>

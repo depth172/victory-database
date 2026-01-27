@@ -412,12 +412,15 @@ async function main() {
 				console.log(`  ⚠ Unknown player #${unknownCount}: name="${name}" q="${q}" in_listMap=${q ? listMap.has(q) : false}`);
 				return;
 			}
-
-			const id = listItem.id;
+			
+			if (listItem.number === null || listItem.number === 0) {
+				unknownCount++;
+				console.log(`  ⚠ Unknown player #${unknownCount} (no number): name="${name}" q="${q}"`);
+				return;
+			}
 
       rows.push({
-				id,
-				number: listItem.number,
+				number: listItem.number ?? 0,
         name,
 				ruby: listItem.ruby,
         nickname,

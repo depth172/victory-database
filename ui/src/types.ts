@@ -1,8 +1,7 @@
 import { PlayerPosition, PlayerElement, PlayerBuildName } from "@/../../shared/types";
  
 export type PlayerRow = {
-	id: string;
-	number: number | null;
+	number: number;
 	name: string;
 	ruby: string;
 	nickname: string;
