@@ -62,7 +62,7 @@ function basicMapFromLi($: cheerio.CheerioAPI, li: cheerio.Cheerio<any>) {
 
 type ListItem = {
 	id: string;
-	number: string | null;
+	number: number | null;
 	ruby: string;
 	category: string[];
 	affiliation: string[];
@@ -177,7 +177,8 @@ async function buildMapFromCharaList(baseUrl: string) {
 
 			const ruby = nameTd ? nameTd.find("div.nameBox p a span.rubi").text() : "";
 
-			const no = noIndex !== undefined ? normalize(tds.eq(noIndex).text()) : "";
+			const noText = noIndex !== undefined ? normalize(tds.eq(noIndex).text()) : "";
+			const no = noText ? Number(noText) : null;
 
 			const category = categoryIndex !== undefined ? tdLines($, tds.eq(categoryIndex)) : [];
 			const affiliation = affiliationIndex !== undefined ? tdLines($, tds.eq(affiliationIndex)) : [];
@@ -411,9 +412,9 @@ async function main() {
 				console.log(`  ⚠ Unknown player #${unknownCount}: name="${name}" q="${q}" in_listMap=${q ? listMap.has(q) : false}`);
 				return;
 			}
-			
+
       rows.push({
-				number: listItem.number ?? "0",
+				number: listItem.number ?? 0,
         name,
 				ruby: listItem.ruby,
         nickname,

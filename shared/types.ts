@@ -9,7 +9,7 @@ export type PlayerBuild = "breach" | "counter" | "bond" | "tension" | "rough_pla
 export type PlayerBuildName = "ひっさつ" | "カウンター" | "キズナ" | "テンション" | "ラフプレー" | "正義";
 
 export type Player = {
-	number: string;
+	number: number;
 	name: string;
 	ruby: string;
 	nickname: string;
@@ -34,11 +34,6 @@ export type Player = {
 	gender: string;
 	category: string[];
 	affiliation: string[];
-};
-
-export type ExtendedPlayer = Player & {
-	main_build_id: PlayerBuild | null;
-	main_build_name: PlayerBuildName | null;
 };
 
 export type SpecialMoveCategory = "シュート" | "オフェンス" | "ディフェンス" | "キーパー";

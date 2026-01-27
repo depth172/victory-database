@@ -1,5 +1,10 @@
-import { PlayerPosition, PlayerElement, PlayerBuildName } from "@/../../shared/types";
- 
+import { PlayerPosition, PlayerElement, PlayerBuildName, PlayerBuild } from "@/../../shared/types";
+import { Player } from "@/../../shared/types";
+
+export type PlayerClient = Omit<Player, "number"> & {
+	number: string;
+};
+
 export type PlayerRow = {
 	number: number;
 	name: string;
@@ -26,3 +31,9 @@ export type PlayerRow = {
 	wall_df: number | null;
 	kp: number | null;
 };
+
+export type ExtendedPlayer = PlayerClient & {
+	main_build_id: PlayerBuild | null;
+	main_build_name: PlayerBuildName | null;
+};
+

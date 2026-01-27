@@ -1,7 +1,7 @@
 import ElementIcon from "@/components/icons/ElementIcon";
 import style from "./Page.module.css";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-import { ExtendedPlayer } from "@shared/types";
+import { ExtendedPlayer } from "@/types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import PositionIcon from "@/components/icons/PositionIcon";
