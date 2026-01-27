@@ -31,7 +31,6 @@ function applyCategoryFilter(query: ReturnType<typeof buildPlayersQuery>, catCod
   const orExpr = targets
     .map((t) => `category.cs.{${t}}`)
     .join(",");
-  console.log("applyCategoryFilter: orExpr", orExpr);
 
   return query.or(orExpr);
 }
