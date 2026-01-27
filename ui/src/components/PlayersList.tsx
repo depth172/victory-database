@@ -151,7 +151,7 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
 					<div id="player-list" className={style.playerTable}>
 						<div className={style.pTableHeader}>
 							<div />
-							<div />
+							<div className={style.iconHeader} />
 							<div>名前</div>
 							<div>性別</div>
 							<div>ポジション</div>

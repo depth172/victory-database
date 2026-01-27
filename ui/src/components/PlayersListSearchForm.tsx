@@ -144,15 +144,15 @@ export default function PlayersSearchForm(props: {
 			</div>
 				
 			<div className={style.buttons}>
+				<button disabled={loading} onClick={() => onApply(emptyFilters)}>
+					クリア
+				</button>
+
 				<button
 					disabled={loading}
 					onClick={() => onApply({ ...draft, q: draft.q.trim() })}
 				>
 					検索
-				</button>
-
-				<button disabled={loading} onClick={() => onApply(emptyFilters)}>
-					クリア
 				</button>
 			</div>
     </div>
