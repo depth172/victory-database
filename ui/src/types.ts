@@ -18,4 +18,12 @@ export type PlayerRow = {
 	gender: string;
 	category: string[];
 	affiliation: string[];
+
+	focus_at: number | null;
+	focus_df: number | null;
+	scramble_at: number | null;
+	scramble_df: number | null;
+	shoot_at: number | null;
+	wall_df: number | null;
+	kp: number | null;
 };

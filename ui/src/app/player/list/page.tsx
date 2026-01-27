@@ -2,14 +2,20 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import PlayersList from "@/components/PlayersList";
 import { PlayerRow } from "@/types";
 import { filtersFromSearchParams } from "@/lib/playerFilters";
-import { BUILD, CATEGORY, decodeFromDict, ELEMENT, GENDER, POSITION, WORK } from "@/lib/playerDict";
+import { BUILD, /* CATEGORY, */ decodeFromDict, ELEMENT, GENDER, POSITION, WORK } from "@/lib/playerDict";
+import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 
-function escapeLike(s: string) {
-  // ilike の % _ をざっくりエスケープ
-  return s.replaceAll("%", "\\%").replaceAll("_", "\\_");
-}
+export const metadata: Metadata = {
+	title: "選手一覧 - Victory Database",
+	description: "Victory Databaseの選手一覧ページです。",
+};
+
+// function escapeLike(s: string) {
+//   // ilike の % _ をざっくりエスケープ
+//   return s.replaceAll("%", "\\%").replaceAll("_", "\\_");
+// }
 
 type SP = Record<string, string | string[] | undefined>;
 
@@ -22,57 +28,48 @@ export default async function PlayersPage(
 
   const f = filtersFromSearchParams(new URLSearchParams(Object.entries(searchParams).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v ?? ""])));
 
-  let query = supabase
-    .schema("extended")
-    .from("players_view")
-    .select(
-      "id,number,name,ruby,nickname,appeared_works,img_url,position,element,age_group,grade,gender,category,affiliation,main_build_name"
-    )
-    .order("number", { ascending: true })
-    .limit(100);
+	const { data, error } = await supabase.rpc("get_players_page_focus_at_asc", {
+		page_size: 100,
+		last_focus_at: null,
+		last_number: null,
 
-  // 検索（name/ruby/nickname の部分一致OR）
-  if (f.q) {
-    const esc = escapeLike(f.q);
-    query = query.or(
-      `name.ilike.%${esc}%,ruby.ilike.%${esc}%,nickname.ilike.%${esc}%`
-    );
-  }
+		q: f.q ?? null,
+		w: f.w ? decodeFromDict(WORK, f.w) : null,
+		pos: f.pos ? decodeFromDict(POSITION, f.pos) : null,
+		el: f.el ? decodeFromDict(ELEMENT, f.el) : null,
+		g: f.g ? decodeFromDict(GENDER, f.g) : null,
+		b: f.b ? decodeFromDict(BUILD, f.b) : null,
 
-  // 絞り込み
-  if (f.w) query = query.eq("appeared_works", decodeFromDict(WORK, f.w));
-  if (f.pos) query = query.eq("position", decodeFromDict(POSITION, f.pos));
-  if (f.el) query = query.eq("element", decodeFromDict(ELEMENT, f.el));
-  if (f.g) query = query.eq("gender", decodeFromDict(GENDER, f.g));
-	if (f.b) query = query.eq("main_build_name", decodeFromDict(BUILD, f.b));
+		// cat はいったん後回しでもいい（最初は動かすのが優先）
+	});
 
-  if (f.cat) {
-		const targets = CATEGORY[f.cat as keyof typeof CATEGORY];
-		if (targets) {
-			if (targets.length === 1) {
-				query = query.contains("category", [targets[0]]);
-			} else {
-				const orExpr = targets
-					.map((t) => `category.cs.{${t}}`)
-					.join(",");
-				query = query.or(orExpr);
-			}
-		}
-	}
-
-  const { data, error } = await query;
+  // if (f.cat) {
+	// 	const targets = CATEGORY[f.cat as keyof typeof CATEGORY];
+	// 	if (targets) {
+	// 		if (targets.length === 1) {
+	// 			query = query.contains("category", [targets[0]]);
+	// 		} else {
+	// 			const orExpr = targets
+	// 				.map((t) => `category.cs.{${t}}`)
+	// 				.join(",");
+	// 			query = query.or(orExpr);
+	// 		}
+	// 	}
+	// }
 
   if (error) {
     return <div>読み込み失敗: {error.message}</div>;
   }
 
-  const initial = (data ?? []) as PlayerRow[];
-  const lastNumber = initial.at(-1)?.number ?? null;
-
+	const initial = (data ?? []) as PlayerRow[];
+	const last = initial.at(-1);
+	const initialCursor =
+		last ? { focusAt: last.focus_at as number, number: last.number } : null;
+	
   return (
     <main style={{ padding: 16 }}>
       <h1>選手一覧</h1>
-      <PlayersList initial={initial} initialCursor={lastNumber} />
+      <PlayersList initial={initial} initialCursor={initialCursor} />
     </main>
   );
 }

@@ -11,8 +11,37 @@ import { RadarChart7 } from "@/components/PlayerRadarChart";
 import Link from "next/link";
 import PlayerSkillList from "@/components/PlayerSkillList";
 import BuildIcon from "@/components/icons/BuildIcon";
+import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+	const { id: rawId } = await params;
+	const id = decodeURIComponent(rawId);
+	const supabase = createSupabaseServerClient();
+
+	const { data, error } = await supabase
+		.schema("extended")
+		.from("players_view")
+		.select("name,category")
+		.eq("id", id)
+		.maybeSingle();
+
+	if (error || !data) {
+		return {
+			title: "選手情報 - Victory Database",
+			description: "Victory Databaseの選手情報ページです。",
+		};
+	}
+	return {
+		title: `${data.name} | 選手情報 - Victory Database`,
+		description: `${data.category[0]}「${data.name}」の情報ページです。`,
+	};
+}
 
 export default async function PlayerPage({
   params,
