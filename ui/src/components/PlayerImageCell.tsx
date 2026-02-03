@@ -11,6 +11,10 @@ export default function PlayerImageCell(props: { imgUrl: string; name: string })
 	const [rect, setRect] = useState<DOMRect | null>(null);
 
 	const handleEnter = () => {
+		if (timeoutRef.current) {
+			clearTimeout(timeoutRef.current);
+			timeoutRef.current = null;
+		}
 		timeoutRef.current = setTimeout(() => {
 			const el = anchorRef.current;
 			if (!el) return;
@@ -24,7 +28,9 @@ export default function PlayerImageCell(props: { imgUrl: string; name: string })
 			clearTimeout(timeoutRef.current);
 			timeoutRef.current = null;
 		}
-		setShowZoomedImage(false);
+		timeoutRef.current = setTimeout(() => {
+			setShowZoomedImage(false);
+		}, 100);
 	};
 
 	useEffect(() => {

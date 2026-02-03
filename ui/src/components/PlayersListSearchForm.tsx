@@ -42,6 +42,11 @@ export default function PlayersSearchForm(props: {
   }, [applied]);
 
   function update<K extends keyof Filters>(key: K, value: Filters[K]) {
+		if (key === "sid" && value === null) {
+			// sidが未指定になったらsdirもクリア
+			setDraft((p) => ({ ...p, sid: null, sdir: null }));
+			return;
+		}
     setDraft((p) => ({ ...p, [key]: value }));
   }
 
@@ -196,7 +201,7 @@ export default function PlayersSearchForm(props: {
             value={draft.sid ? draft.sid : ""}
             onChange={(e) => update("sid", e.target.value ? (e.target.value as Filters["sid"]) : null)}
           >
-            <option value="">未指定</option>
+            <option value="">未指定(番号順)</option>
             {Object.entries(SORTS).map(([id, name]) => (
               <option key={id} value={id}>
                 {name}
@@ -209,6 +214,7 @@ export default function PlayersSearchForm(props: {
           <select
             value={draft.sdir ? draft.sdir : ""}
             onChange={(e) => update("sdir", e.target.value ? (e.target.value as Filters["sdir"]) : null)}
+						disabled={!draft.sid}
           >
             <option value="">降順</option>
             <option value="asc">昇順</option>

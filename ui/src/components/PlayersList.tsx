@@ -65,6 +65,7 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
   const [done, setDone] = useState(props.initial.length === 0);
 
 	const loadingRef = useRef(false);
+	const skipNextReloadRef = useRef(false);
 
   const sentinelRef = useRef<HTMLDivElement>(null);
 
@@ -73,8 +74,8 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
   }, [sp]);
 
   function onApply(next: Filters) {
-    setLoading(true);
-    setDone(false);
+    skipNextReloadRef.current = true; // useEffect での reload をスキップ
+    reloadByFilters(next);
     const nextSp = searchParamsFromFilters(next);
     const qs = nextSp.toString();
     router.push(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
@@ -92,6 +93,7 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
   }
 
   async function reloadByFilters(f: Filters) {
+    loadingRef.current = true;
     setLoading(true);
     setDone(false);
 
@@ -104,17 +106,25 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
 
     setPlayers(rows);
     setCursor(makeCursor(rows, f));
-    setDone(rows.length === 0);
+    setDone(rows.length < 100);
     setLoading(false);
+    loadingRef.current = false;
   }
 
   useEffect(() => {
-    reloadByFilters(applied);
+    if (skipNextReloadRef.current) {
+      skipNextReloadRef.current = false;
+      return;
+    }
+
+		reloadByFilters(applied);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [applied]);
 
 	async function loadMore() {
-		if (loadingRef.current || done || !cursor) return;
+		if (loadingRef.current || done || !cursor) {
+			return;
+		}
 
 		loadingRef.current = true;
 		setLoading(true);
@@ -160,7 +170,7 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
     obs.observe(el);
     return () => obs.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cursor, loading, done, applied]);
+  }, [cursor, applied]);
 
   function handleMouseEnter(playerNumber: number) {
     const rows = document.querySelectorAll(`[data-player-id="${playerNumber}"]`);
@@ -178,72 +188,76 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
 
       <div className={style.playerTableScrollArea}>
 				<div className={style.playerTables}>
-					<div id="player-list" className={style.playerTable}>
-						<div className={style.pTableHeader}>
-							<div />
-							<div className={style.iconHeader} />
-							<div>名前</div>
-							<div>性別</div>
-							<div>ポジション</div>
-							<div>属性</div>
-							<div>メインビルド</div>
-							<div>カテゴリ</div>
-							<div>所属</div>
+					{players.length === 0 && !loading ? (
+						<div className={style.noResults}>該当する選手が見つかりませんでした。</div>
+					) : (
+						<div id="player-list" className={style.playerTable}>
+							<div className={style.pTableHeader}>
+								<div />
+								<div className={style.iconHeader} />
+								<div>名前</div>
+								<div>性別</div>
+								<div>ポジション</div>
+								<div>属性</div>
+								<div>メインビルド</div>
+								<div>カテゴリ</div>
+								<div>所属</div>
+							</div>
+							<div className={style.playerTableBody}>
+								<ul className={style.pTableSpacer}>
+									{players.map((p) => (
+										<li key={p.number}
+											data-player-id={p.number}
+											className={style.pTableRow}
+											onMouseEnter={() => handleMouseEnter(p.number)}
+											onMouseLeave={() => handleMouseLeave(p.number)}
+										>
+											<div className={style.numberCell}>{p.number}</div>
+											<PlayerImageCell imgUrl={p.img_url} name={p.name} />
+											<Link href={`/player/${encodeURIComponent(p.player_id)}`}>
+												<span className={style.name}>{p.name}</span>
+												<br />
+												<span className={style.nickname}>({p.nickname ?? " - "})</span>
+											</Link>
+											<div className={style.iconCell}>
+												<GenderIcon gender={p.gender} size={20} />
+											</div>
+											<div className={style.iconCell}>
+												<PositionIcon position={p.position ?? ""} size={18} />
+											</div>
+											<div className={style.iconCell}>
+												<ElementIcon element={p.element ?? ""} size={24} />
+											</div>
+											<div className={style.buildCell}>
+												<BuildIcon build={p.main_build_name ?? ""} size={28} />
+												{p.main_build_name ?? "調査中"}
+											</div>
+											<div className={style.categoryCell}>
+												{p.category.map((c) => (
+													<div key={`${p.number}-${c}`} className={style.categoryItem}>
+														<PlayerCategoryIcon category={c} size={18} />
+														{c}
+													</div>
+												))}
+											</div>
+											<div className={style.affiliationCell}>
+												{p.affiliation_primary_emblem_url && (
+													<Image
+														src={p.affiliation_primary_emblem_url}
+														alt={`${p.affiliation_primary_name} エンブレム`}
+														width={32}
+														height={32}
+														className={style.affiliationEmblem}
+													/>
+												)}
+												{p.affiliation_primary_name}
+											</div>
+										</li>
+									))}
+								</ul>
+							</div>
 						</div>
-						<div className={style.playerTableBody}>
-							<ul className={style.pTableSpacer}>
-								{players.map((p) => (
-									<li key={p.number}
-										data-player-id={p.number}
-										className={style.pTableRow}
-										onMouseEnter={() => handleMouseEnter(p.number)}
-										onMouseLeave={() => handleMouseLeave(p.number)}
-									>
-										<div className={style.numberCell}>{p.number}</div>
-										<PlayerImageCell imgUrl={p.img_url} name={p.name} />
-										<Link href={`/player/${encodeURIComponent(p.player_id)}`}>
-											<span className={style.name}>{p.name}</span>
-											<br />
-											<span className={style.nickname}>({p.nickname ?? " - "})</span>
-										</Link>
-										<div className={style.iconCell}>
-											<GenderIcon gender={p.gender} size={20} />
-										</div>
-										<div className={style.iconCell}>
-											<PositionIcon position={p.position ?? ""} size={18} />
-										</div>
-										<div className={style.iconCell}>
-											<ElementIcon element={p.element ?? ""} size={24} />
-										</div>
-										<div className={style.buildCell}>
-											<BuildIcon build={p.main_build_name ?? ""} size={28} />
-											{p.main_build_name ?? "調査中"}
-										</div>
-										<div className={style.categoryCell}>
-											{p.category.map((c) => (
-												<div key={`${p.number}-${c}`} className={style.categoryItem}>
-													<PlayerCategoryIcon category={c} size={18} />
-													{c}
-												</div>
-											))}
-										</div>
-										<div className={style.affiliationCell}>
-											{p.affiliation_primary_emblem_url && (
-												<Image
-													src={p.affiliation_primary_emblem_url}
-													alt={`${p.affiliation_primary_name} エンブレム`}
-													width={32}
-													height={32}
-													className={style.affiliationEmblem}
-												/>
-											)}
-											{p.affiliation_primary_name}
-										</div>
-									</li>
-								))}
-							</ul>
-						</div>
-					</div>
+					)}
 					{applied.sid && (
 						<div className={style.numberTable}>
 							<div className={style.nTableHeader}>
@@ -271,9 +285,11 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
 
       <div ref={sentinelRef} style={{ height: 1 }} />
 
-      <div className={style.loadingArea}>
+      {players.length > 0 && (
+			<div className={style.loadingArea}>
         {done ? <div className={style.loadingText}>リストはこれで全てです。</div> : <LoadingSpinner />}
       </div>
+			)}
     </div>
   );
 }

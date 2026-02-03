@@ -22,6 +22,13 @@
 	width: fit-content;
 }
 
+.noResults {
+	width: 100%;
+	padding: 24px;
+	color: #666;
+	font-size: 1rem;
+}
+
 .pTableHeader,
 .nTableHeader {
 	display: grid;
