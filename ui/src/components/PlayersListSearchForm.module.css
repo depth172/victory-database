@@ -59,7 +59,7 @@
 
 .inputs select:focus {
 	outline: none;
-	border-color: #666;
+	border-color: #fff;
 }
 
 .inputs select option {

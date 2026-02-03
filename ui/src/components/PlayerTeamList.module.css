@@ -1,0 +1,11 @@
+.teamList {
+	margin-top: 8px;
+	list-style-type: none;
+	padding-left: 0.5rem;
+}
+
+.teamItem {
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
+}

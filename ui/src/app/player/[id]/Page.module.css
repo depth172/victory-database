@@ -144,12 +144,6 @@
 	opacity: 0.7;
 }
 
-.affiliationBlock ul {
-	margin-top: 8px;
-	list-style-type: none;
-	padding-left: 20px;
-}
-
 .miscInfoBlock {
 	display: grid;
 	gap: 8px;

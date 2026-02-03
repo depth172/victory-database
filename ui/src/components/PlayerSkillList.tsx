@@ -5,7 +5,7 @@ import style from "./PlayerSkillList.module.css";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 type SkillRow = {
-  player_id: string;
+  player_number: number;
   slot: number;
   unlock_level: number;
   skill_id: string;
@@ -25,14 +25,14 @@ type SlotItem =
 
 const SLOTS = 6;
 
-export default async function PlayerSkillList({ playerId }: { playerId: string }) {
+export default async function PlayerSkillList({ playerNumber }: { playerNumber: number }) {
   const supabase = createSupabaseServerClient();
 
   const { data, error } = await supabase
 		.schema("extended")
     .from("player_default_skills_expanded")
-    .select("player_id,slot,unlock_level,skill_id,name,kind,category,element,effect,movie_url,power,tension_cost")
-    .eq("player_id", playerId)
+    .select("player_number,slot,unlock_level,skill_id,name,kind,category,element,effect,movie_url,power,tension_cost")
+    .eq("player_number", playerNumber)
     .order("slot", { ascending: true });
 
   if (error) {

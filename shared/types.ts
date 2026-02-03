@@ -9,6 +9,7 @@ export type PlayerBuild = "breach" | "counter" | "bond" | "tension" | "rough_pla
 export type PlayerBuildName = "ひっさつ" | "カウンター" | "キズナ" | "テンション" | "ラフプレー" | "正義";
 
 export type Player = {
+	id: string;
 	number: number;
 	name: string;
 	ruby: string;

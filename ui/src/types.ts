@@ -1,11 +1,7 @@
-import { PlayerPosition, PlayerElement, PlayerBuildName, PlayerBuild } from "@/../../shared/types";
-import { Player } from "@/../../shared/types";
-
-export type PlayerClient = Omit<Player, "number"> & {
-	number: string;
-};
+import { PlayerPosition, PlayerElement, PlayerBuildName, PlayerBuild, Player } from "@/../../shared/types";
 
 export type PlayerRow = {
+	player_id: string;
 	number: number;
 	name: string;
 	ruby: string;
@@ -21,7 +17,9 @@ export type PlayerRow = {
 	grade: string;
 	gender: string;
 	category: string[];
-	affiliation: string[];
+
+	affiliation_primary_name: string;
+	affiliation_primary_emblem_url: string | null;
 
 	focus_at: number | null;
 	focus_df: number | null;
@@ -32,8 +30,8 @@ export type PlayerRow = {
 	kp: number | null;
 };
 
-export type ExtendedPlayer = PlayerClient & {
+export type ExtendedPlayer = Player & {
+	player_id: string;
 	main_build_id: PlayerBuild | null;
 	main_build_name: PlayerBuildName | null;
 };
-

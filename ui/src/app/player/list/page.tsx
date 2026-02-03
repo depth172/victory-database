@@ -2,6 +2,7 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import PlayersList from "@/components/PlayersList";
 import { fetchPlayersPage, filtersFromSearchParams } from "@/lib/playerFilters";
 import { Metadata } from "next";
+import style from "./Page.module.css"
 
 export const dynamic = "force-dynamic";
 
@@ -9,11 +10,6 @@ export const metadata: Metadata = {
 	title: "選手一覧 - Victory Database",
 	description: "Victory Databaseの選手一覧ページです。",
 };
-
-// function escapeLike(s: string) {
-//   // ilike の % _ をざっくりエスケープ
-//   return s.replaceAll("%", "\\%").replaceAll("_", "\\_");
-// }
 
 type SP = Record<string, string | string[] | undefined>;
 
@@ -42,8 +38,8 @@ export default async function PlayersPage(
 		: null;
 	
   return (
-    <main style={{ padding: 16 }}>
-      <h1>選手一覧</h1>
+    <main className={style.main}>
+			<h1 className={style.title}>選手一覧</h1>
       <PlayersList initial={initial} initialCursor={initialCursor} />
     </main>
   );

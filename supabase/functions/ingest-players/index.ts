@@ -1,6 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
 
 type Player = {
+	canonical_key?: string;
+
 	number: number;
 	name: string;
 	ruby: string;
@@ -53,6 +55,20 @@ function isPlayer(x: unknown): x is Player {
 		obj.number > 0 &&
 		typeof obj.name === "string"
 	);
+}
+
+function canonicalKey(p: Player): string {
+  const cat = (p.category ?? []).slice().sort().join(",");
+  // descriptionは揺れやすいので最後の保険にするなら入れる
+  return (
+    (p.name ?? "") + "|" +
+    (p.ruby ?? "") + "|" +
+    (p.appeared_works ?? "") + "|" +
+    (p.age_group ?? "") + "|" +
+    (p.grade ?? "") + "|" +
+    (p.description ?? "") + "|" +
+    cat
+  ).toLowerCase();
 }
 
 Deno.serve(async (req) => {
@@ -121,7 +137,14 @@ Deno.serve(async (req) => {
 			invalid.push({ index: i, reason: "Invalid player shape" });
 			continue;
 		}
-		players.push(p);
+		if (p.name === "？？？") {
+			invalid.push({ index: i, reason: "Unreleased placeholder" });
+			continue;
+		}
+
+		const cp = p as Player;
+		cp.canonical_key = canonicalKey(cp);
+		players.push(cp);
 	}
 
 	if (players.length === 0) {
@@ -133,20 +156,56 @@ Deno.serve(async (req) => {
 	let upserted = 0;
 
 	try {
-		for (const group of chunk(players, BATCH)) {
-			const { error } = await supabase
+		for (const group of chunk(players, BATCH)) {			
+			const { data: rows, error: upsertErr } = await supabase
 				.schema("inagle")
 				.from("players")
-				.upsert(group, { onConflict: "number" });
+				.upsert(group, { onConflict: "canonical_key" })
+				.select("id, canonical_key, number, view_url");
 
-			if (error) {
+			if (upsertErr) {
 				return json(500, {
 					ok: false,
 					error: "Upsert failed",
-					details: error,
+					details: upsertErr,
 					batchSize: group.length,
 				});
 			}
+
+			const keys = group.map(p => p.canonical_key);
+
+			if (!rows || rows.length === 0) {
+				return json(500, {
+					ok: false,
+					error: "Fetch after upsert returned empty",
+					details: { keysSample: keys.slice(0, 5) },
+					batchSize: group.length,
+				});
+			}
+
+			const sources = rows.map(r => ({
+				source: "inagle",
+				source_key: r.canonical_key,
+				player_id: r.id,
+				source_number: r.number,
+				view_url: r.view_url,
+				last_seen_at: new Date().toISOString(),
+			}));
+
+			const { error: sourcesErr } = await supabase
+				.schema("extended")
+				.from("player_sources")
+				.upsert(sources, { onConflict: "source,source_key" });
+
+			if (sourcesErr) {
+				return json(500, {
+					ok: false,
+					error: "Upsert player_sources failed",
+					details: sourcesErr,
+					batchSize: group.length,
+				});
+			}
+			
 			upserted += group.length;
 		}
 	} catch (e) {

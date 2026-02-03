@@ -12,6 +12,7 @@ import Link from "next/link";
 import PlayerSkillList from "@/components/PlayerSkillList";
 import BuildIcon from "@/components/icons/BuildIcon";
 import { Metadata } from "next";
+import PlayerTeamList from "@/components/PlayerTeamList";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +28,7 @@ export async function generateMetadata({
 		.schema("extended")
 		.from("players_view")
 		.select("name,category")
-		.eq("number", id)
+		.eq("player_id", id)
 		.maybeSingle();
 
 	if (error || !data) {
@@ -55,6 +56,7 @@ export default async function PlayerPage({
     .from("players_view")
     .select(
       [
+				"player_id",
         "number",
         "name",
         "ruby",
@@ -77,11 +79,10 @@ export default async function PlayerPage({
         "grade",
         "gender",
         "category",
-        "affiliation",
 				"main_build_id"
       ].join(",")
     )
-    .eq("number", id)
+    .eq("player_id", id)
     .maybeSingle();
 
   if (error || !data) {
@@ -89,7 +90,7 @@ export default async function PlayerPage({
     if (error) {
       return <div style={{ padding: 16 }}>読み込み失敗: {error.message}</div>;
     }
-		console.log(`PlayerPage: player not found, number=${id}`);
+		console.log(`PlayerPage: player not found, player_id=${id}`);
     notFound();
   }
 
@@ -207,7 +208,7 @@ export default async function PlayerPage({
 					/>
 
 					<h2>習得スキル</h2>
-					<PlayerSkillList playerId={p.number} />
+					<PlayerSkillList playerNumber={p.number} />
 				</section>
 
 				<section className={style.abilityGrid}>
@@ -251,11 +252,7 @@ export default async function PlayerPage({
 				<section className={style.infoGrid}>
 					<div className={style.affiliationBlock}>
 						<h2>所属チーム</h2>
-						<ul>
-							{p.affiliation.map((aff) => (
-								<li key={aff}>{aff}</li>
-							))}
-						</ul>
+						<PlayerTeamList playerId={p.player_id} />
 					</div>
 					<div className={style.miscInfoBlock}>
 						<div className={style.largeCell}>
