@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function SkillCategoryIcon(props: { element: string; size?: number }) {
+export default function SkillCategoryIcon(props: { category: string; size?: number }) {
 	const size = props.size ?? 24;
 
 	const japaneseToEnglish: { [key: string]: string } = {
@@ -10,7 +10,7 @@ export default function SkillCategoryIcon(props: { element: string; size?: numbe
 		"キーパー": "keeper",
 	};
 
-	const categoryKey = japaneseToEnglish[props.element] ?? props.element;
+	const categoryKey = japaneseToEnglish[props.category] ?? props.category;
 
 	switch (categoryKey) {
 		case "shoot":

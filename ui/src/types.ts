@@ -35,3 +35,31 @@ export type ExtendedPlayer = Player & {
 	main_build_id: PlayerBuild | null;
 	main_build_name: PlayerBuildName | null;
 };
+
+export type SkillEffect =
+	| "long_shoot"
+	| "counter_shoot"
+	| "shoot_block"
+	| "punching";
+
+export type Skill = {
+  id: string;
+	name: string;
+	description: string;
+	thumbnail: string;
+	category: string;
+	element: PlayerElement | "無";
+	effect: SkillEffect | null;
+	power: number;
+	tension_cost: number;
+};
+
+export type Keshin = Omit<Skill, "power" | "tension_cost"> & {
+	kind: "keshin";
+	buffs: {
+		target: "self" | "nearby" | "team";
+		stat: "focus_at_df" | "scramble_at_df" | "shoot_at_df" | "wall_df" | "kp";
+		value: number;
+	}[];
+	replaces_special_move_id: string;
+};

@@ -1,0 +1,142 @@
+.list {
+	justify-content: center;
+	display: grid;
+	gap: 1.5rem;
+	padding: 0;
+	list-style: none;
+	grid-template-columns: repeat(auto-fill, minmax(auto, 650px));
+	grid-template-rows: auto;
+}
+
+.listItem {
+	border: 1px solid #aaa;
+	padding: 0.8rem 0;
+	opacity: 1;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.8rem;
+}
+
+.listItem:hover {
+	background: #222;
+}
+
+.skillHeader {
+	display: flex;
+	width: 100%;
+	padding: 0.5rem 1rem;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+
+	background-image: linear-gradient(90deg, #0004, var(--end) 100%, var(--end));
+}
+
+.skillTitle {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 700;
+}
+
+.skillEffect {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-size: 0.9rem;
+	color: #ddd;
+}
+
+.wind {
+	--end: #2476b1;
+}
+
+.forest {
+	--end: #329b36;
+}
+
+.fire {
+	--end: #9f2121;
+}
+
+.mountain {
+	--end: #976626;
+}
+
+.none {
+	--end: #5f2181;
+}
+
+.skillDetails {
+	display: flex;
+	gap: 1rem;
+	padding: 0 0.8rem;
+	width: 100%;
+}
+
+.textSection {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	flex: 1;
+	min-width: 0;
+}
+
+.imageSection {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+}
+
+.imageSection img {
+	aspect-ratio: 16 / 9;
+	width: 100%;
+	height: auto;
+	max-width: 30vw;
+}
+
+.skillDescription {
+	flex-grow: 1;
+	font-size: 1rem;
+	white-space: pre-wrap;
+	color: #ddd;
+	opacity: 0.9;
+}
+
+.skillStats {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.6rem;
+}
+
+.skillStat {
+	display: flex;
+	align-items: baseline;
+	gap: 0.4rem;
+	font-size: 0.85rem;
+}
+
+.tensionCost {
+	color: #f08030;
+	opacity: 0.9;
+}
+
+.numberCell {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	font-family: var(--font-bruno-ace-sc), sans-serif;
+}
+
+.skillStat .number {
+	font-weight: 600;
+}
+
+.power .number,
+.tensionCost .number {
+	font-size: 1.5rem;
+}

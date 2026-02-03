@@ -1,7 +1,7 @@
 "use client";
 
 import style from "./PlayersList.module.css";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { PlayerRow } from "@/types";
@@ -88,6 +88,7 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
 
     return {
       number: last.number!,
+			playerId: last.player_id,
       sortValue: f.sid ? (last as unknown as Record<string, number | null>)[f.sid] ?? null : null,
     };
   }
@@ -121,7 +122,7 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [applied]);
 
-	async function loadMore() {
+	const loadMore = useCallback(async () => {
 		if (loadingRef.current || done || !cursor) {
 			return;
 		}
@@ -136,6 +137,7 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
 				filters: applied,
 				sort: applied.sid ? { id: applied.sid, dir: applied.sdir ?? "desc" } : null,
 			});
+			console.log(`Loaded ${rows.length} more players.`);
 
 			if (rows.length === 0) {
 				setDone(true);
@@ -154,7 +156,7 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
 			loadingRef.current = false;
 			setLoading(false);
 		}
-	}
+	}, [cursor, done, applied, supabase]);
 
   useEffect(() => {
     const el = sentinelRef.current;
@@ -169,8 +171,7 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
 
     obs.observe(el);
     return () => obs.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cursor, applied]);
+  }, [loadMore]);
 
   function handleMouseEnter(playerNumber: number) {
     const rows = document.querySelectorAll(`[data-player-id="${playerNumber}"]`);

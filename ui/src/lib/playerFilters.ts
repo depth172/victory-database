@@ -1,4 +1,5 @@
-import { BUILD, CATEGORY, decodeFromDict, ELEMENT, GENDER, POSITION, SortId, WORK } from "./playerDict";
+import { BUILD, CATEGORY, ELEMENT, GENDER, POSITION, SortId, WORK } from "./playerDict";
+import { decodeFromDict } from "./commonDict";
 import { PlayerRow } from "@/types";
 import { createSupabaseBrowserClient } from "./supabase/client";
 
@@ -52,7 +53,7 @@ type SortSpec =
   | null;
 
 export type Cursor =
-  | { number: number; sortValue: number | null }
+  | { number: number; sortValue: number | null; playerId: string | null }
   | null;
 
 type FetchPlayersArgs = {
@@ -85,6 +86,7 @@ export async function fetchPlayersPage(
 
       last_sort_value: cursor?.sortValue ?? null,
       last_number: cursor?.number ?? null,
+			last_player_id: cursor?.playerId ?? null,
 
       q: filters.q ?? null,
       w: filters.w ? decodeFromDict(WORK, filters.w) : null,

@@ -81,7 +81,7 @@ export default async function PlayerSkillList({ playerNumber }: { playerNumber: 
           {it.skill ? (
             <>
               <div className={style.skillName}>
-								<SkillCategoryIcon element={it.skill.category} size={24} />
+								<SkillCategoryIcon category={it.skill.category} size={24} />
 								<ElementIcon element={it.skill.element} size={20} />
 								{it.skill.name}
 							</div>

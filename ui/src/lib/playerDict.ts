@@ -11,7 +11,6 @@ export const POSITION = {
   fw: "FW",
 } as const;
 
-// element は実データに合わせて
 export const ELEMENT = {
   wi: "風",
   fo: "林",
@@ -19,7 +18,6 @@ export const ELEMENT = {
   mt: "山",
 } as const;
 
-// category は実データに合わせて（例）
 export const CATEGORY = {
   pl: ["選手"],
   le: ["監督", "コーチ"],
@@ -67,16 +65,3 @@ export const SORTS: Record<SortId, string> = {
 	wall_df: "城壁DF",
 	kp: "KP"
 };
-
-type Dict = Record<string, string>;
-
-export function decodeFromDict(dict: Dict, code: string | null) {
-  if (!code) return null;
-  return dict[code] ?? null;
-}
-
-export function encodeToDict(dict: Dict, value: string | null) {
-  if (!value) return null;
-  const entry = Object.entries(dict).find(([, v]) => v === value);
-  return entry?.[0] ?? null;
-}

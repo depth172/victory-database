@@ -33,6 +33,7 @@ export default async function PlayersPage(
 	const initialCursor = last
 		? {
 				number: last.number!,
+				playerId: last.player_id,
 				sortValue: f.sid ? (last as unknown as Record<string, number | null>)[f.sid] ?? null : null,
 		  }
 		: null;
