@@ -1,5 +1,4 @@
 import "dotenv/config";
-import crypto from "crypto";
 import * as cheerio from "cheerio";
 import type { Player, PlayerElement, PlayerPosition, SpecialMove } from "@/shared/types";
 
@@ -282,13 +281,6 @@ async function uploadToPlayerDatabase(players: Player[]) {
   }
 }
 
-function hashSkill(input: string) {
-  return crypto
-    .createHash("sha1")
-    .update(input)
-    .digest("hex");
-}
-
 async function uploadToSpecialMoveDatabase(specialMoves: SpecialMove[]) {
 	const apiUrl = process.env.API_URL_INGEST!;
 	const ingestKey = process.env.INGEST_KEY!;
@@ -462,29 +454,22 @@ async function main() {
 	const allSpecialMoves: SpecialMove[] = [];
 	let numberCounter = 0;
 
-	console.log(`\nFetching special moves from ${baseUrl}/skill/...`);
+	console.log(`\nFetching special moves from ${baseUrl}/skill/ ...`);
 
 	const shootQuery = "hN2cnouamJCNhqCZlpOLmo3dxaTOooI=";
 	const offenseQuery = "hN2cnouamJCNhqCZlpOLmo3dxaTNooI=";
 	const defenseQuery = "hN2cnouamJCNhqCZlpOLmo3dxaTMooI=";
 	const keeperQuery = "hN2cnouamJCNhqCZlpOLmo3dxaTLooI=";
 
-	const skillTypeNames = {
-		シュート: "shoot",
-		オフェンス: "offense",
-		ディフェンス: "defense",
-		キーパー: "keeper",
-	} as const;
-
 	for (const [category, query] of [
-		["シュート", shootQuery],
-		["オフェンス", offenseQuery],
-		["ディフェンス", defenseQuery],
-		["キーパー", keeperQuery],
+		["shoot", shootQuery],
+		["offense", offenseQuery],
+		["defense", defenseQuery],
+		["keeper", keeperQuery],
 	] as const) {
 		for (let p = 1; p <= maxPages; p++) {
 			const url = `${baseUrl}/skill/?page=${p}&q=${query}`;
-			console.log(`  fetching ${skillTypeNames[category]} skills... (page ${p})`);
+			console.log(`  fetching ${category} skills... (page ${p})`);
 
 			const res = await fetch(url, {
 				headers: {
@@ -499,26 +484,23 @@ async function main() {
 			const rows: SpecialMove[] = [];
 
 			const $ = cheerio.load(html);
-			$("ul.skillListBox > li").each((idx, el) => {
+			$("ul.skillListBox > li").each((_, el) => {
 				const li = $(el);
 
 				const name = rubySurface($, li.find("span.name").first());
 				const description = textWithBr($, li.find("p.description").first());
 
-				const movieHref = li.find("a.modal_inline").attr("data-movie-url") ?? "";
-				const rawId = name + "|" + movieHref;
-				const id = hashSkill(rawId);
+				const thumbnail = li.find("a.modal_inline").attr("data-poster-url") ?? "";
 
 				numberCounter++;
 
-				if (!name || name === "？？？") return;
+				if (!name || name === "？？？" || !thumbnail) return;
 
 				rows.push({
-					id,
 					number: numberCounter,
 					name,
 					description,
-					movie_url: movieHref,
+					thumbnail,
 					category,
 				});
 			});

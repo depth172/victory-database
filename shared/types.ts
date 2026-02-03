@@ -9,7 +9,6 @@ export type PlayerBuild = "breach" | "counter" | "bond" | "tension" | "rough_pla
 export type PlayerBuildName = "ひっさつ" | "カウンター" | "キズナ" | "テンション" | "ラフプレー" | "正義";
 
 export type Player = {
-	id: string;
 	number: number;
 	name: string;
 	ruby: string;
@@ -37,16 +36,15 @@ export type Player = {
 	affiliation: string[];
 };
 
-export type SpecialMoveCategory = "シュート" | "オフェンス" | "ディフェンス" | "キーパー";
+export type SpecialMoveCategory = "shoot" | "offense" | "defense" | "keeper";
 export type SpecialMoveElement = PlayerElement | "無";
 export type SpecialMoveEffect = "long_shoot" | "counter_shoot" | "shoot_block" | "punching";
 
 export type SpecialMove = {
-	id: string;
 	number: number;
 	name: string;
 	description: string;
-	movie_url: string;
+	thumbnail: string;
 	category: SpecialMoveCategory;
 }
 

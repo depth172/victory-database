@@ -14,7 +14,6 @@ type SkillRow = {
   category: string;
 	element: string;
 	effect: string | null;
-  movie_url: string | null;
 	power: number | null;
   tension_cost: number | null;
 };
@@ -31,7 +30,7 @@ export default async function PlayerSkillList({ playerNumber }: { playerNumber: 
   const { data, error } = await supabase
 		.schema("extended")
     .from("player_default_skills_expanded")
-    .select("player_number,slot,unlock_level,skill_id,name,kind,category,element,effect,movie_url,power,tension_cost")
+    .select("player_number,slot,unlock_level,skill_id,name,kind,category,element,effect,power,tension_cost")
     .eq("player_number", playerNumber)
     .order("slot", { ascending: true });
 
@@ -71,10 +70,10 @@ export default async function PlayerSkillList({ playerNumber }: { playerNumber: 
 						 }
 						 ${
 							it.skill?.kind === "real_skill" ? style.realSkill :
-							it.skill?.category === "シュート" ? style.shoot :
-							it.skill?.category === "オフェンス" ? style.offense :
-							it.skill?.category === "ディフェンス" ? style.defense :
-							it.skill?.category === "キーパー" ? style.keeper : ""
+							it.skill?.category === "shoot" ? style.shoot :
+							it.skill?.category === "offense" ? style.offense :
+							it.skill?.category === "defense" ? style.defense :
+							it.skill?.category === "keeper" ? style.keeper : ""
 						 }
 						`
 					}

@@ -32,9 +32,12 @@ export default function PlayersSearchForm(props: {
 }) {
   const { applied, onApply, loading } = props;
 
+	
+
   const [draft, setDraft] = useState<Filters>(applied);
   const [teamOptions, setTeamOptions] = useState<TeamOption[]>([]);
   const [teamsLoading, setTeamsLoading] = useState(false);
+	const [teamSelectWidth, setTeamSelectWidth] = useState<number>(0);
 
   // 戻る/進む等でURLが変わったらフォームも追従
   useEffect(() => {
@@ -68,6 +71,28 @@ export default function PlayersSearchForm(props: {
             setDraft((p) => ({ ...p, t: null }));
           }
         }
+
+				if (teamSelectWidth) return;
+				
+				// チームセレクトの幅を動的に決定
+        const allOptions = await fetchTeamOptions(null);
+				const testSelect = document.getElementById("team-select");
+				if (testSelect) {
+					let maxWidth = 0;
+					allOptions.forEach((t) => {
+						const testSpan = document.createElement("span");
+						testSpan.style.fontSize = "clamp(14px, 1.5vw, 16px)";
+						testSpan.style.visibility = "hidden";
+						testSpan.style.whiteSpace = "nowrap";
+						testSpan.textContent = t.team_name;
+						document.body.appendChild(testSpan);
+						const textWidth = testSpan.offsetWidth;
+						document.body.removeChild(testSpan);
+						if (textWidth > maxWidth) maxWidth = textWidth;
+					});
+					const totalWidth = Math.ceil(maxWidth + 4);
+					setTeamSelectWidth(totalWidth);
+				}
       } finally {
         if (!cancelled) setTeamsLoading(false);
       }
@@ -169,7 +194,8 @@ export default function PlayersSearchForm(props: {
             value={draft.t ?? ""}
             disabled={teamsLoading}
             onChange={(e) => update("t", e.target.value || null)}
-						style={{width: "13rem"}}
+						id="team-select"
+						style={{width: teamSelectWidth ? `${teamSelectWidth}px` : undefined}}
           >
             <option value="">{teamsLoading ? "読み込み中" : "未指定"}</option>
             {teamOptions.map((t) => (

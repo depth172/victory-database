@@ -188,7 +188,7 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
 
       <div className={style.playerTableScrollArea}>
 				<div className={style.playerTables}>
-					{players.length === 0 && !loading ? (
+					{players.length === 0 ? (
 						<div className={style.noResults}>該当する選手が見つかりませんでした。</div>
 					) : (
 						<div id="player-list" className={style.playerTable}>
@@ -258,7 +258,7 @@ export default function PlayersList(props: { initial: PlayerRow[]; initialCursor
 							</div>
 						</div>
 					)}
-					{applied.sid && (
+					{players.length !== 0 && applied.sid && (
 						<div className={style.numberTable}>
 							<div className={style.nTableHeader}>
 								<div>{SORTS[applied.sid]}</div>

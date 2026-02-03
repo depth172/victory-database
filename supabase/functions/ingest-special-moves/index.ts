@@ -1,13 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 
-type SpecialMove = {
-	id: string;
+type SpecialMoveIngest = {
 	number: number;
 	name: string;
 	description: string;
-	movie_url: string;
-	type: string;
-}
+	thumbnail: string;
+	category: "shoot" | "offense" | "defense" | "keeper";
+	source_key?: string;
+};
 
 function json(status: number, body: unknown) {
 	return new Response(JSON.stringify(body), {
@@ -25,21 +25,42 @@ function chunk<T>(arr: T[], size: number): T[][] {
 	return out;
 }
 
-function isSpecialMove(x: unknown): x is SpecialMove {
+function isValidCategory(x: unknown): x is SpecialMoveIngest["category"] {
+	return x === "shoot" || x === "offense" || x === "defense" || x === "keeper";
+}
+
+function thumbnailToFileName(thumbnail: string): string {
+	const noHash = thumbnail.split("#", 1)[0] ?? "";
+	const noQuery = noHash.split("?", 1)[0] ?? "";
+	const parts = noQuery.split("/");
+	return parts[parts.length - 1] ?? "";
+}
+
+function isSpecialMoveIngest(x: unknown): x is SpecialMoveIngest {
 	const obj = x as Record<string, unknown>;
+	if (x === null || typeof x !== "object") return false;
+
+	const name = obj.name;
+	const description = obj.description;
+	const thumbnail = obj.thumbnail;
+	const category = obj.category;
+	const number = obj.number;
+
 	return (
-		x !== null &&
-		typeof x === "object" &&
-		typeof obj.id === "string" &&
-		obj.id.length > 0 &&
-		typeof obj.name === "string" &&
-		typeof obj.number === "number"
+		typeof name === "string" &&
+		name.length > 0 &&
+		name !== "？？？" &&
+		typeof description === "string" &&
+		typeof thumbnail === "string" &&
+		thumbnail.length > 0 &&
+		typeof number === "number" &&
+		Number.isFinite(number) &&
+		isValidCategory(category)
 	);
 }
 
 Deno.serve(async (req) => {
 	if (req.method === "OPTIONS") {
-		// 念の為CORSプリフライト対応
 		return new Response(null, {
 			status: 204,
 			headers: {
@@ -83,43 +104,67 @@ Deno.serve(async (req) => {
 		return json(400, { ok: false, error: "Invalid JSON" });
 	}
 
-	const specialMovesRaw: unknown[] = Array.isArray(payload)
+	const raw: unknown[] = Array.isArray(payload)
 		? payload
-		: (payload && typeof payload === "object" && "specialMoves" in payload && Array.isArray((payload as Record<string, unknown>).specialMoves))
-			? (payload as Record<string, unknown>).specialMoves as unknown[]
+		: (payload &&
+			typeof payload === "object" &&
+			"specialMoves" in payload &&
+			Array.isArray((payload as Record<string, unknown>).specialMoves))
+			? ((payload as Record<string, unknown>).specialMoves as unknown[])
 			: [];
 
-	if (!Array.isArray(specialMovesRaw) || specialMovesRaw.length === 0) {
+	if (!Array.isArray(raw) || raw.length === 0) {
 		return json(400, { ok: false, error: "No special moves provided" });
 	}
 
-	// 最低限のバリデーションと正規化
+	// バリデーション + 正規化（source_keyはthumbnailから生成）
 	const invalid: { index: number; reason: string }[] = [];
-	const specialMoves: SpecialMove[] = [];
+	const moves: Array<{
+		source_key: string;
+		number: number;
+		name: string;
+		description: string;
+		thumbnail: string;
+		category: SpecialMoveIngest["category"];
+	}> = [];
 
-	for (let i = 0; i < specialMovesRaw.length; i++) {
-		const p = specialMovesRaw[i];
-		if (!isSpecialMove(p)) {
+	for (let i = 0; i < raw.length; i++) {
+		const p = raw[i];
+		if (!isSpecialMoveIngest(p)) {
 			invalid.push({ index: i, reason: "Invalid special move shape" });
 			continue;
 		}
-		specialMoves.push(p);
+
+		const fileName = thumbnailToFileName(p.thumbnail);
+		if (!fileName) {
+			invalid.push({ index: i, reason: "thumbnail has no filename" });
+			continue;
+		}
+
+		moves.push({
+			source_key: fileName, // 仕様: source_keyはファイル名
+			number: p.number,
+			name: p.name,
+			description: p.description,
+			thumbnail: p.thumbnail,
+			category: p.category,
+		});
 	}
 
-	if (specialMoves.length === 0) {
+	if (moves.length === 0) {
 		return json(400, { ok: false, error: "All special moves invalid", invalid });
 	}
 
-	// Upsert
+	// Upsert（衝突条件はsource_key）
 	const BATCH = Number(Deno.env.get("UPSERT_BATCH_SIZE") ?? "300");
 	let upserted = 0;
 
 	try {
-		for (const group of chunk(specialMoves, BATCH)) {
+		for (const group of chunk(moves, BATCH)) {
 			const { error } = await supabase
 				.schema("inagle")
 				.from("special_moves")
-				.upsert(group, { onConflict: "id" });
+				.upsert(group, { onConflict: "source_key" });
 
 			if (error) {
 				return json(500, {
@@ -137,10 +182,10 @@ Deno.serve(async (req) => {
 
 	return json(200, {
 		ok: true,
-		received: specialMovesRaw.length,
-		valid: specialMoves.length,
+		received: raw.length,
+		valid: moves.length,
 		invalidCount: invalid.length,
 		upserted,
-		invalid: invalid.length ? invalid.slice(0, 50) : undefined, // 最大50件まで
+		invalid: invalid.length ? invalid.slice(0, 50) : undefined,
 	});
 });
