@@ -23,11 +23,13 @@
 	align-items: center;
 }
 
-.inputs label {
+.inputs label,
+.inputs .labelWrap {
 	display: flex;
 	flex-direction: column;
 	font-size: 0.9rem;
 	color: #aaa;
+	gap: 0.2rem;
 }
 
 .textSearch {
@@ -43,7 +45,6 @@
 }
 
 .inputs select {
-	margin-top: 4px;
 	padding: 6px 8px;
 	font-size: 0.8rem;
 	border: 1px solid #ccc;
@@ -80,6 +81,25 @@
 
 .workSelect select {
 	font-size: clamp(0.55rem, 2vw, 0.8rem);
+}
+
+.effectOptions {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-height: 100px;
+	overflow-y: auto;
+	padding-right: 4px;
+}
+
+.effectOptions label {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 4px;
+	font-size: 0.9rem;
+	padding: 5px 7px;
+	color: var(--foreground);
 }
 
 .buttons {

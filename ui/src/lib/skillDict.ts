@@ -13,11 +13,11 @@ export const CATEGORY = {
 	kp: "キーパー"
 } as const;
 
-export type SortId = 
+export type SkillSortId = 
 		"power"
 	| "tension_cost"
 
-export const SORTS: Record<SortId, string> = {
+export const SORTS: Record<SkillSortId, string> = {
 	power: "威力",
 	tension_cost: "消費テンション"
 };

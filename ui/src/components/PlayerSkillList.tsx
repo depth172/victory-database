@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ElementIcon from "./icons/ElementIcon";
 import SkillCategoryIcon from "./icons/SkillCategoryIcon";
 import SkillEffectIcon from "./icons/SkillEffectIcon";
@@ -59,27 +60,26 @@ export default async function PlayerSkillList({ playerNumber }: { playerNumber: 
       {items.map((it) => (
         <li
           key={it.slot}
-          className={
-						`${it.skill ? style.skillItem : style.skillItemEmpty}
-						 ${
-							it.skill?.element === "風" ? style.wind :
-							it.skill?.element === "林" ? style.forest :
-							it.skill?.element === "火" ? style.fire :
-							it.skill?.element === "山" ? style.mountain :
-							it.skill?.element === "無" ? style.none : ""
-						 }
-						 ${
-							it.skill?.kind === "real_skill" ? style.realSkill :
-							it.skill?.category === "shoot" ? style.shoot :
-							it.skill?.category === "offense" ? style.offense :
-							it.skill?.category === "defense" ? style.defense :
-							it.skill?.category === "keeper" ? style.keeper : ""
-						 }
-						`
-					}
+					className={!it.skill ? style.skillItemEmpty : ""}
         >
           {it.skill ? (
-            <>
+            <Link
+							href={it.skill.kind === "special_move" ? `/skill/${encodeURIComponent(it.skill.skill_id)}` : "#"}
+							className={
+								`${style.skillItem}
+								${
+									it.skill?.element === "風" ? style.wind :
+									it.skill?.element === "林" ? style.forest :
+									it.skill?.element === "火" ? style.fire :
+									it.skill?.element === "山" ? style.mountain :
+									it.skill?.element === "無" ? style.none : ""
+								}
+								${
+									it.skill?.kind === "real_skill" ? style.realSkill : ""
+								}
+								`
+							}
+						>
               <div className={style.skillName}>
 								<SkillCategoryIcon category={it.skill.category} size={24} />
 								<ElementIcon element={it.skill.element} size={20} />
@@ -104,7 +104,7 @@ export default async function PlayerSkillList({ playerNumber }: { playerNumber: 
 									</div>
 								}
 							</div>
-            </>
+            </Link>
           ) : (
             <div className={style.skillEmpty} />
           )}

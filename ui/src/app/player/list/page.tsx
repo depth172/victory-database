@@ -3,6 +3,7 @@ import PlayersList from "@/components/PlayersList";
 import { fetchPlayersPage, filtersFromSearchParams } from "@/lib/playerFilters";
 import { Metadata } from "next";
 import style from "./Page.module.css"
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -40,6 +41,7 @@ export default async function PlayersPage(
 	
   return (
     <main className={style.main}>
+			<Link href="/" className={style.topLink}>&lt; トップに戻る</Link>
 			<h1 className={style.title}>選手一覧</h1>
       <PlayersList initial={initial} initialCursor={initialCursor} />
     </main>

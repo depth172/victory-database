@@ -1,6 +1,6 @@
 "use client";
 
-import style from "./PlayersListSearchForm.module.css";
+import style from "./ListSearchForm.module.css";
 import { useEffect, useState } from "react";
 import { Filters, emptyFilters } from "@/lib/playerFilters";
 import { GENDER, POSITION, ELEMENT, CATEGORY, WORK, BUILD, SORTS } from "@/lib/playerDict";
@@ -12,9 +12,7 @@ type TeamOption = {
   first_seen_number: number | null;
 };
 
-async function fetchTeamOptions(workKey: keyof typeof WORK | null): Promise<TeamOption[]> {
-  const supabase = createSupabaseBrowserClient();
-
+async function fetchTeamOptions(supabase: ReturnType<typeof createSupabaseBrowserClient>, workKey: keyof typeof WORK | null): Promise<TeamOption[]> {
 	const w = workKey ? WORK[workKey] : null;
 
   const { data, error } = await supabase
@@ -26,13 +24,12 @@ async function fetchTeamOptions(workKey: keyof typeof WORK | null): Promise<Team
 }
 
 export default function PlayersSearchForm(props: {
+	supabase: ReturnType<typeof createSupabaseBrowserClient>;
   applied: Filters;
   onApply: (next: Filters) => void;
   loading?: boolean;
 }) {
-  const { applied, onApply, loading } = props;
-
-	
+  const { supabase, applied, onApply, loading } = props;
 
   const [draft, setDraft] = useState<Filters>(applied);
   const [teamOptions, setTeamOptions] = useState<TeamOption[]>([]);
@@ -60,7 +57,7 @@ export default function PlayersSearchForm(props: {
     (async () => {
       setTeamsLoading(true);
       try {
-        const nextOptions = await fetchTeamOptions(draft.w);
+        const nextOptions = await fetchTeamOptions(supabase, draft.w);
         if (cancelled) return;
 
         setTeamOptions(nextOptions);
@@ -75,7 +72,7 @@ export default function PlayersSearchForm(props: {
 				if (teamSelectWidth) return;
 				
 				// チームセレクトの幅を動的に決定
-        const allOptions = await fetchTeamOptions(null);
+        const allOptions = await fetchTeamOptions(supabase, null);
 				const testSelect = document.getElementById("team-select");
 				if (testSelect) {
 					let maxWidth = 0;

@@ -1,9 +1,9 @@
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-import PlayersList from "@/components/PlayersList";
 import { Metadata } from "next";
 import style from "./Page.module.css"
-import { fetchSkillsPage } from "@/lib/skillFilter";
+import { fetchSkillsPage, filtersFromSearchParams } from "@/lib/skillFilter";
 import SkillList from "@/components/SkillList";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -12,28 +12,37 @@ export const metadata: Metadata = {
 	description: "Victory Databaseの必殺技一覧ページです。",
 };
 
-export default async function PlayersPage() {
-  const supabase = createSupabaseServerClient();
+type SP = Record<string, string | string[] | undefined>;
+
+export default async function SkillsPage(
+	props: { searchParams: Promise<SP> }
+) {
+	const searchParams = await props.searchParams;
+	
+	const supabase = createSupabaseServerClient();
+
+	const f = filtersFromSearchParams(new URLSearchParams(Object.entries(searchParams).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v ?? ""])));
 
 	const initial = await fetchSkillsPage(supabase, {
-		pageSize: 100,
+		pageSize: 60,
 		cursor: null,
-		filters: {q: null, e: null, c: null, sid: null, sdir: null},
-		sort: null,
+		filters: f
 	});
 
 	const last = initial.at(-1);
 	const initialCursor = last
 		? {
-				playerId: last.id,
-				sortValue: null,
-		  }
+				number: last.number!,
+				skillId: last.id,
+				sortValue: f.sid ? (last as unknown as Record<string, number | null>)[f.sid] ?? null : null,
+			}
 		: null;
 	
   return (
     <main className={style.main}>
+			<Link href="/" className={style.topLink}>&lt; トップに戻る</Link>
 			<h1 className={style.title}>必殺技一覧</h1>
-			<SkillList initialItems={initial} />
+			<SkillList initialItems={initial} initialCursor={initialCursor} />
     </main>
   );
 }

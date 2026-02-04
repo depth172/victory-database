@@ -1,0 +1,49 @@
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.main {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+
+.main a:hover {
+	text-decoration: underline;
+}
+
+.title {
+	font-size: 3rem;
+	font-weight: bold;
+	margin: 0;
+}
+
+.flavorText {
+	font-style: italic;
+	opacity: 0.8;
+	font-size: 0.9rem;
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+	justify-content: center;
+	list-style: none;
+	color: #7fbfff;
+}
+
+.divider {
+	border: 1px solid #666;
+	margin: 1rem 0;
+}
+
+.footer {
+	font-size: 0.8rem;
+	opacity: 0.6;
+	text-align: center;
+}

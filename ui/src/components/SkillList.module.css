@@ -39,6 +39,7 @@
 	align-items: center;
 	gap: 8px;
 	font-weight: 700;
+	font-size: 1.1rem;
 }
 
 .skillEffect {
@@ -120,6 +121,10 @@
 	font-size: 0.85rem;
 }
 
+.skillStat div {
+	white-space: nowrap;
+}
+
 .tensionCost {
 	color: #f08030;
 	opacity: 0.9;
@@ -139,4 +144,14 @@
 .power .number,
 .tensionCost .number {
 	font-size: 1.5rem;
+}
+
+.loadingArea {
+	display: flex;
+	justify-content: center;
+	padding: 12px;
+}
+
+.loadingText {
+	opacity: 0.6;
 }

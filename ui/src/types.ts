@@ -45,6 +45,7 @@ export type SkillEffect =
 export type Skill = {
   id: string;
 	name: string;
+	alias: string;
 	description: string;
 	thumbnail: string;
 	category: string;
@@ -52,6 +53,27 @@ export type Skill = {
 	effect: SkillEffect | null;
 	power: number;
 	tension_cost: number;
+};
+
+export type SkillRow = {
+	id: string;
+	source: string;
+	kind: "special_move";
+	number: number | null;
+
+	name: string;
+	description: string;
+	category: string;
+	thumbnail: string | null;
+
+	power: number | null;
+	tension_cost: number | null;
+	element: PlayerElement | "無";
+	effect: SkillEffect | null;
+
+	// cursor用
+	cursor_null_flag: number | null;
+	cursor_sort_value: number | null;
 };
 
 export type Keshin = Omit<Skill, "power" | "tension_cost"> & {
