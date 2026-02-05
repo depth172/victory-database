@@ -4,6 +4,7 @@ import { fetchPlayersPage, filtersFromSearchParams } from "@/lib/playerFilters";
 import { Metadata } from "next";
 import style from "./Page.module.css"
 import Link from "next/link";
+import TopButton from "@/components/common/TopButton";
 
 export const dynamic = "force-dynamic";
 
@@ -44,6 +45,7 @@ export default async function PlayersPage(
 			<Link href="/" className={style.topLink}>&lt; トップに戻る</Link>
 			<h1 className={style.title}>選手一覧</h1>
       <PlayersList initial={initial} initialCursor={initialCursor} />
+			<TopButton smooth={true} offset={0} />
     </main>
   );
 }
